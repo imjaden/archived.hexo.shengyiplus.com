@@ -1,0 +1,47 @@
+<div class="sidebar">
+  <div class="sidebar-inner-index">
+    <ul class="main-menu">
+      <%- partial('partials/main_menu', { context: 'sidebar' }) %>
+    </ul>
+  </div>
+</div>
+
+<div id="hero" style="height:">
+  <div class="inner">
+    <div class="left">
+      <img class="hero-logo" src="<%- url_for("/images/logo.png") %>" alt="vue logo" style="height:auto;">
+    </div><div class="right">
+      <h2 class="vue">Vue.js</h2>
+      <h1>
+        <small>单点对接的</small><span>数据中台</span>
+      </h1>
+      <p>
+        帮助企业用户实现轻松对接数据，嫁接应用
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="highlights">
+  <div class="inner">
+    <div class="point">
+      <h2>生命力</h2>
+      <p>每周三定期发布各模块的新版本</p>
+    </div>
+
+    <div class="point">
+      <h2>轻量</h2>
+      <p>简洁、高效的用户体验方式</p>
+    </div>
+
+    <div class="point">
+      <h2>可视化</h2>
+      <p>一切运营的数据可视化</p>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  <p><a href="http://www.beian.gov.cn/portal/index.do" target="_blank">沪ICP备11033154号</a><br>
+  Copyright &copy; 2011-<%- new Date().getFullYear() %> Intfocus</p>
+</div>

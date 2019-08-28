@@ -1,0 +1,10 @@
+<li>
+  <form id="search-form">
+    <input type="text" id="search-query-<%- context %>" class="search-query st-default-search-input">
+  </form>
+</li>
+<%- partial('partials/application_dropdown') %>
+<%- partial('partials/developer_dropdown') %>
+<li>
+  <a href="https://intfocus.com" target="_blank" class="nav-link team<%- page.path.match(/team\.html/) ? ' current' : '' %>">官网</a>
+</li>

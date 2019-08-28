@@ -1,0 +1,20 @@
+<li class="nav-dropdown-container learn">
+  <a class="nav-link<%- page.path.match(/\/(guide(?!\/team.html$)|api|style-guide|examples|cookbook)(\/|$)/) ? ' current' : '' %>">开发文档</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>风格指南</h4></li>
+    <li>
+      <ul>
+        <li><a href="<%- url_for("/v2/guide/") %>" class="nav-link<%- page.path.match(/\/guide(\/|$)/) ? ' current' : '' %>">Java</a></li>
+        <li><a href="<%- url_for("/v2/api/") %>" class="nav-link<%- page.path.match(/\/api(\/|$)/) ? ' current' : '' %>">Ruby</a></li>
+        <li><a href="<%- url_for("/v2/style-guide/") %>" class="nav-link<%- page.path.match(/\/style-guide(\/|$)/) ? ' current' : '' %>">Javascript</a></li>
+        <li><a href="<%- url_for("/v2/style-guide/") %>" class="nav-link<%- page.path.match(/\/style-guide(\/|$)/) ? ' current' : '' %>">MySQL</a></li>
+      </ul>
+    </li>
+    <li><h4>工具集</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">SypCtl</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
