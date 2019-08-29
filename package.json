@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "hexo server",
-    "build": "node pre-deploy.js && hexo clean && hexo generate",
+    "build": "hexo clean && hexo generate",
     "deploy": "nm run build && hexo deploy",
     "gac": "node git-utils.js gac",
     "gap": "node git-utils.js gap"

@@ -3,6 +3,10 @@ title: Gitlab提交规范
 type: Gitlab提交规范
 ---
 
+## 思维导图
+
+![Gitlab协作规范](/images/Gitlab协作规范.png)
+
 ## 提交格式
 
 > type@version(scope): subject
@@ -35,7 +39,31 @@ type: Gitlab提交规范
 - 开发人员每次提交时修改 `提交版本` +1
 - 项目助理每次发布时修改 `发布版本` +1
 
-## Git 协作开发规范
+## `gap` 命令
 
-见附件《Gitlab代码协作规范.pdf》
+
+1. 所有项目源码根目录下都有版本配置档 `version.json`
+
+```
+{
+    "name": "胜因学院在线文档",
+    "major:description": "产品版本",
+    "minor:description": "业务版本",
+    "tiny:description": "线上版本，每次发布上线时 +1",
+    "commit:description": "开发版本，每次 commit 时 +1",
+    "major": 0,
+    "minor": 1,
+    "tiny": 1,
+    "commit": 3,
+    "pro_mini_version": "0.1.1",
+    "pro_version": "0.1.1/3",
+    "dev_version": "0.1.3"
+}
+```
+
+2. 使用 `gap` 操作的 commit 行为都会修改 `version.json` 中 `commit` +1
+3. 所有项目都支持 `gap` 命令
+    - Node.js 项目 `npm run gap <type> <module> <message>`
+    - Ruby 项目 `bash tool.sh gap <type> <module> <message>`
+    - Bash 项目 `bash tool.sh gap <type> <module> <message>`
 
