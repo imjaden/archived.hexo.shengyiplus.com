@@ -4,22 +4,22 @@
     <li><h4>中台体系</h4></li>
     <li>
       <ul>
-        <li><a href="<%- url_for("/v2/guide/") %>" class="nav-link<%- page.path.match(/\/guide(\/|$)/) ? ' current' : '' %>">接口中台</a></li>
-        <li><a href="<%- url_for("/v2/api/") %>" class="nav-link<%- page.path.match(/\/api(\/|$)/) ? ' current' : '' %>">数据中台</a></li>
-        <li><a href="<%- url_for("/v2/style-guide/") %>" class="nav-link<%- page.path.match(/\/style-guide(\/|$)/) ? ' current' : '' %>">报表中台</a></li>
+        <li><a href="<%- url_for("/application/api-middleground.html") %>" class="nav-link<%- page.path.match(/application\/api-/) ? ' current' : '' %>">接口中台</a></li>
+        <li><a href="<%- url_for("/application/data-middleground.html") %>" class="nav-link<%- page.path.match(/application\/data-/) ? ' current' : '' %>">数据中台</a></li>
+        <li><a href="<%- url_for("/application/report-middleground.html") %>" class="nav-link<%- page.path.match(/application\/report-/) ? ' current' : '' %>">报表中台</a></li>
       </ul>
     </li>
     <li><h4>应用实例</h4></li>
     <li>
       <ul>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">胜因学院<small>(小程序)</small></a></li>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">胜因盒子<small>(TV大屏)</small></a></li>
+        <li><a href="<%- url_for("/application/syp-wxmp.html") %>" class="nav-link<%- page.path.match(/application\/syp-wxmp/) ? ' current' : '' %>">胜因学院<small>(小程序)</small></a></li>
+        <li><a href="<%- url_for("/application/syp-android-tv.html") %>" class="nav-link<%- page.path.match(/application\/syp-android-tv/) ? ' current' : '' %>">胜因盒子<small>(TV大屏)</small></a></li>
       </ul>
     </li>
     <li><h4>信息</h4></li>
     <li>
       <ul>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">胜因学院<small>(服务号)</small></a></li>
+        <li><a href="<%- url_for("/application/syp-wechat-service-number.html") %>" class="nav-link<%- page.path.match(/application\/syp-wechat-service-number/) ? ' current' : '' %>">胜因学院<small>(服务号)</small></a></li>
       </ul>
     </li>
   </ul>
