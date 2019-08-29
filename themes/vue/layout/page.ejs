@@ -15,14 +15,14 @@
       </form>
       <%- partial('partials/toc', { type: 'guide' }) %>
     <% } else { %>
-      <%- partial('partials/ad') %>
+      <% partial('partials/ad') %>
     <% } %>
   <% } %>
   <% if (page.title.trim()) { %>
     <h1><%- page.title %><%- page.type === 'examples' ? ' Example' : '' %></h1>
   <% } %>
 
-  <%- partial('partials/ad-pagetop') %>
+  <% partial('partials/ad-pagetop') %>
 
   <% if (page.sponsors) { %>
     <%- partial('sponsors-page') %>
@@ -43,7 +43,7 @@
       <% } %>
     </div>
   <% } %>
-  <div class="footer">
+  <div class="footer" style="display:none;">
     <%_ if (!page.sponsors) { _%>
       <%- partial('partials/ad-text') %>
     <%_ } _%>

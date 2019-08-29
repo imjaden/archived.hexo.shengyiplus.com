@@ -1,10 +1,10 @@
 site_description: Vue.js - The Progressive JavaScript Framework
 google_analytics: UA-46852172-3
 root_domain: cn.vuejs.org
-vue_version: 2.5.16
+vue_version: 2.6.10
 platinum_sponsors_china:
-  - url: 'http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci='
-    img: dcloud.gif
+  - url: 'https://syp.idata.mobi/'
+    img: syp-java-admin.png
 video_sponsors_china:
   - url: http://cloud.youku.com/index.php?source=vuejs
     img: youku.png

@@ -1,0 +1,20 @@
+<li class="nav-dropdown-container learn">
+  <a class="nav-link<%- page.path.match(/\/(guide(?!\/team.html$)|api|style-guide|examples|cookbook)(\/|$)/) ? ' current' : '' %>">企业文化</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>职场培训</h4></li>
+    <li>
+      <ul>
+        <li><a href="<%- url_for("/corporate-culture/workplace-cognition.html") %>" class="nav-link<%- page.path.match(/corporate-culture\/workplace-cognition/) ? ' current' : '' %>">职场认知</a></li>
+        <li><a href="<%- url_for("/corporate-culture/workplace-ceremony.html") %>" class="nav-link<%- page.path.match(/corporate-culture\/workplace-ceremony/) ? ' current' : '' %>">职场仪式感</a></li>
+      </ul>
+    </li>
+    <li><h4>生命力</h4></li>
+    <li>
+      <ul>
+        <li><a href="<%- url_for("/corporate-culture/online-documents.html") %>" class="nav-link<%- page.path.match(/corporate-culture\/online-documents/) ? ' current' : '' %>">在线文档</a></li>
+        <li><a href="<%- url_for("/corporate-culture/weekly-publication.html") %>" class="nav-link<%- page.path.match(/corporate-culture\/weekly/) ? ' current' : '' %>">胜因周刊</a></li>
+        <li><a href="<%- url_for("/corporate-culture/wednesday-release.html") %>" class="nav-link<%- page.path.match(/corporate-culture\/wednesday/) ? ' current' : '' %>">周三迭代</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>

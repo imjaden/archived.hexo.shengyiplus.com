@@ -4,16 +4,17 @@
     <li><h4>风格指南</h4></li>
     <li>
       <ul>
-        <li><a href="<%- url_for("/v2/guide/") %>" class="nav-link<%- page.path.match(/\/guide(\/|$)/) ? ' current' : '' %>">Java</a></li>
-        <li><a href="<%- url_for("/v2/api/") %>" class="nav-link<%- page.path.match(/\/api(\/|$)/) ? ' current' : '' %>">Ruby</a></li>
-        <li><a href="<%- url_for("/v2/style-guide/") %>" class="nav-link<%- page.path.match(/\/style-guide(\/|$)/) ? ' current' : '' %>">Javascript</a></li>
-        <li><a href="<%- url_for("/v2/style-guide/") %>" class="nav-link<%- page.path.match(/\/style-guide(\/|$)/) ? ' current' : '' %>">MySQL</a></li>
+        <li><a href="<%- url_for("/developer/style-guide/gitlab.html") %>" class="nav-link<%- page.path.match(/-guide\/gitlab/) ? ' current' : '' %>">Gitlab</a></li>
+        <li><a href="<%- url_for("/developer/style-guide/java.html") %>" class="nav-link<%- page.path.match(/-guide\/java\.html/) ? ' current' : '' %>">Java</a></li>
+        <li><a href="<%- url_for("/developer/style-guide/mysql.html") %>" class="nav-link<%- page.path.match(/-guide\/mysql/) ? ' current' : '' %>">MySQL</a></li>
+        <li><a href="<%- url_for("/developer/style-guide/javascript.html") %>" class="nav-link<%- page.path.match(/-guide\/javascript/) ? ' current' : '' %>">Javascript</a></li>
       </ul>
     </li>
-    <li><h4>工具集</h4></li>
+    <li><h4>项目源码</h4></li>
     <li>
       <ul>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">SypCtl</a></li>
+        <li><a href="<%- url_for("/developer/project-connections.html") %>" class="nav-link<%- page.path.match(/developer\/project-connections/) ? ' current' : '' %>">源码体系</a></li>
+        <li><a href="<%- url_for("/developer/sypctl-readme.html") %>" class="nav-link<%- page.path.match(/developer\/sypctl-readme/) ? ' current' : '' %>">SypCtl</a></li>
       </ul>
     </li>
   </ul>
