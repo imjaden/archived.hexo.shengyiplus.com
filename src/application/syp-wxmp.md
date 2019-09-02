@@ -7,6 +7,8 @@ type: 胜因学院(小程序)
 
 ![胜因学院小程序-业务流程](/images/胜因学院小程序-业务流程.png)
 
+[登录模块接口文档](/developer/api-guide/syp-wxmp.html)
+
 ## 我的-积分
 
 ![胜因学院小程序-业务流程](/images/小程序-我的-积分.png)
