@@ -593,3 +593,317 @@ type: 接口文档
     - key为 ("portal:user:verificationCode:register:%s",mobile)，值为 code
 
   - 返回信息实体中封装结果集 result 并返回
+
+## 报表页
+
+1. 获取报表项菜单
+
+  ```
+  get api/portal/wx/report-menu
+  {
+    enterpriseUuid: 企业uuid，
+    roleUuids: 角色uuid
+  }
+  ```
+
+  ​业务流程：
+
+  - 参数判断
+    - 对roleUuids进行判空
+
+  - 从redis中获取报表项菜单列表
+    - key为 "portal:role:wx:report-menu"，hashkey为 "role-" + roleUuids，得到JSON字符创 menuListStr
+    - 如果 menuListStr 不为空，将其转为List集合 menuList，如果为空，则给List集合 menuList 赋值 null
+
+  - 如果 menuList 为空
+    - 获取数据源 portalDataSource
+    - 调用 `apiWeChatService.queryReportMenuByUserRoleUuids(roleUuids, portalDataSource)` 获得报表菜单集合 menuList
+
+    ```sql
+    SELECT
+      smr.id ,
+      smr.uuid ,
+      smr.category ,
+      ifnull(smr.category_order , 0) AS category_order ,
+      smr.group_name ,
+      ifnull(smr.group_order , 0) AS group_order ,
+      smr.obj_title AS `name` ,
+      ifnull(smr.item_order , 0) AS item_order ,
+      smr.obj_type ,
+      smr.obj_id ,
+      smr.obj_title ,
+      smr.obj_link ,
+      smr.obj_cdn ,
+      smr.obj_version ,
+      smr.publicly ,
+      smr.menu_type ,
+      smr.option_user_num ,
+      icon AS icon_link ,
+      CASE smr.obj_type
+    WHEN 'wxmp#config' THEN
+      smc.home_path
+    WHEN 'wxmp' THEN
+      smr.home_path
+    ELSE
+      ''
+    END AS home_path ,
+     smr.cdn_module ,
+     smr.cdn_version ,
+     smr.cdn_state ,
+     smr.report_id ,
+     smr.obj_link AS url_path
+    FROM
+      sup_menus AS smr
+    LEFT JOIN sup_module_config AS smc ON smc.module_code = smr.obj_id
+    WHERE
+      smr.platform = 'wxmp'
+    AND menu_category = 1
+    AND smr.uuid IN(
+      SELECT
+        menu_uuid
+      FROM
+        app_user_role_resources
+      WHERE
+        locate(
+          role_uuid ,
+          #{roleUuids}) > 0 and delete_status = '0'
+        )
+    ORDER BY
+      smr.category_order ASC ,
+      smr.group_order ASC ,
+      smr.item_order ASC
+    ```
+
+    - 如果 menuList 不为空，key为 "portal:role:wx:report-menu"，hashkey为"role-" + roleUuids，向redis中追加值 JSONObject.toJSONString(menuList)
+
+  - 向返回实体信息中封装 menuList 并返回
+
+## 工具箱页
+
+1. 获取工具箱列表
+
+  ```
+  get api/portal/wx/toolbox-menu
+  {
+    request： 请求，
+    roleUuids:  用户角色uuid 
+  }
+  ```
+
+  业务流程：
+
+  - 参数判断（ roleUuids 进行判空）
+  - 从redis中获取值 menuListStr
+    - key为 "portal:role:wx:toolbox-menu"
+    - hashkey为 "role-" + roleUuids
+
+  - 将 menuListStr 转为菜单 menuList 集合
+  - 如果 menuList 是空的
+    - 获取数据源 portalDataSource
+    - 调用 `apiWeChatService.queryToolboxMenuByUserRoleUuids(roleUuids, portalDataSource)` 方法获取工具箱菜单列表 menuList
+
+    ```sql
+    SELECT
+      smt.id ,
+      smt.uuid ,
+      smt.category ,
+      ifnull(smt.category_order , 0) AS category_order ,
+      smt.group_name ,
+      ifnull(smt.group_order , 0) AS group_order ,
+      smt.obj_title AS `name` ,
+      ifnull(smt.item_order , 0) AS item_order ,
+      smt.obj_title ,
+      smt.menu_type ,
+      smt.obj_type ,
+      smt.obj_id ,
+      smt.obj_link ,
+      smt.obj_cdn ,
+      smt.obj_version ,
+      smt.report_id ,
+      smt.url_path ,
+      smt.icon AS icon_link ,
+      smt.publicly ,
+      smt.option_user_num ,
+      CASE smt.obj_type
+    WHEN 'wxmp#config' THEN
+      smc.home_path
+    WHEN 'wxmp' THEN
+      smt.home_path
+    ELSE
+      ''
+    END AS home_path ,
+     smt.obj_title AS `name` ,
+     smt.cdn_module ,
+     smt.cdn_version ,
+     smt.cdn_state
+    FROM
+      sup_menus AS smt
+    LEFT JOIN sup_module_config AS smc ON smc.module_code = smt.obj_id
+    WHERE
+      smt.platform = 'wxmp'
+    AND menu_category = 0
+    AND smt.uuid IN(
+      SELECT
+        menu_uuid
+      FROM
+        app_user_role_resources
+      WHERE
+        locate(
+          role_uuid ,
+          #{roleUuids}) > 0 and delete_status = '0'
+        )
+    ORDER BY
+      smt.category_order ASC ,
+      smt.group_order ASC ,
+      smt.item_order ASC    
+    ```
+
+    - 解析渲染 menuList 数据
+    - 以key为 "portal:role:wx:toolbox-menu" ，hashkey为 "role-" + roleUuids ，值为 menuList 向redis中追加
+    - 返回实体信息中封装 menuList 并返回
+
+  - 如果menuList非空，返回实体信息中封装 menuList 并返回
+
+## '我的'页
+
+### 查询'formId' 数量
+
+```
+  get api/portal/wx/formId-num
+  {
+    enterpriseUuid: 企业UUID，
+    mobile: 手机号
+  }
+```
+
+  业务流程：
+
+  - 参数判断
+    - 对 mobile 进行参数判空
+
+  - 获取用户信息集合
+    - 调用 `apiWeChatService.portalQueryFormIdByMobile(mobile, selectPortalDataSourceUtils.dynamicSelectPortalDataSource(FUNCTION_F10L, DB_TYPE_SLAVE))` 获得用户信息集合 userMap
+
+    ```sql
+    SELECT
+      wx_avatar AS wxAvatar ,
+      wx_name AS wxName ,
+      wx_nick_name AS wxNickName ,
+      wx_unique_token AS wxUniqueToken ,
+      mobile ,
+      enterprise_code AS enterpriseCode ,
+      enterprise_uuid AS enterpriseUuid ,
+      is_binding AS isBinding
+    FROM
+      sup_wx_users
+    WHERE
+      mobile = #{mobile} and is_binding = 1 and delete_status = 0
+    LIMIT 1
+    ```
+
+  - 如果 userMap 不为空
+    - 取 userMap 中的 "wxuniqueToken" 赋值给字符串 openId
+    - 以 "portal:user:wxFormId" 为key从redis中获取集合 map
+    - 如果 map 不为空
+      - 遍历 map ，每一次的遍历单体对象是 entry
+      - 将 entry.getKey() 赋值给 hashKey ，entry.getValue() 赋值给 value 
+      - 将 hashKey 用 "@" 切割得到字符串数据 hashKeys
+      - 如果 hashKeys 长度大于1，且数组第一个元素和 openId 相等，获取当前时间毫秒值 nowTime 
+      - 如果 nowTime 小于 hashKeys 第二个元素的值或者 value 值不等于 "the formId is a mock one" ，计数器 count++ ，formIdArray添加值 value ，否则从redis中移除掉 key为 "portal:user:wxFormId" , hashKey为 entry.getKey() 的数据
+
+  - 向 userMap 中 put  ("userFormIdNum", count) 和 ("formIdArray", formIdArray)
+  - 在返回信息实体中封装 userMap 并返回
+
+### 获取企业管理列表
+
+```
+  get api/portal/wx/enterprise-menu-list
+  {
+    enterpriseUuid：企业UUID，
+    roleUuids: 角色UUID
+  }
+```
+
+  业务流程：
+
+  - 参数判断
+    - 对roleUuids进行判空
+
+  - 获取数据源 portalDataSource
+  - 获取企业管理列表
+    - 调用 `apiWeChatService.queryEnterpriseMenuList(roleUuids, f10lSlaveDataSource)` 获得企业管理列表 menuList
+
+    ```sql
+    SELECT
+      t1.id ,
+      t1.`name` AS title ,
+      t1.description ,
+      t1.group_name ,
+      t1.obj_id ,
+      t1.obj_type ,
+      CASE t1.group_name
+    WHEN '基本信息' THEN
+      'sa'
+    WHEN '业务权限设置' THEN
+      'sb'
+    ELSE
+      'sc'
+    END AS pid ,
+     CASE
+    WHEN t1.group_name = '业务权限设置' THEN
+      t1.parent_menu_uuid
+    ELSE
+      ''
+    END AS uuid ,
+     CASE t1.obj_type
+    WHEN 'wxmp#config' THEN
+      t3.home_path
+    WHEN 'wxmp' THEN
+      t1.home_path
+    ELSE
+      ''
+    END AS home_path
+    FROM
+      sup_menus AS t1
+    LEFT JOIN app_user_role_resources AS t2 ON t1.uuid = t2.menu_uuid
+    AND t2.delete_status = '0'
+    LEFT JOIN sup_module_config AS t3 ON t3.module_code = t1.obj_id
+    WHERE
+      t1.menu_category = '2'
+    AND FIND_IN_SET(
+      t2.role_uuid ,
+      #{roleUuids})
+    
+    GROUP BY
+      t1.group_name ,
+      t1.`name`
+    ORDER BY
+      pid ,
+      t1.id
+    ```
+
+  - 如果 menuList 不为空
+    - 调用 `apiWeChatService.queryModulePageConfigList(f10lSlaveDataSource)` 获得页面设置列表 configList 
+
+    ```sql
+    SELECT
+      module_code ,
+      page_code ,
+      page_type ,
+      version
+    FROM
+      sup_module_page_config
+    WHERE
+      module_code IS NOT NULL
+    AND page_code IS NOT NULL
+    AND page_type IS NOT NULL
+    AND version IS NOT NULL
+    ```
+
+    - 遍历 menuList ，每一次遍历单体对象是 data ，如果 data.get("obj_id") 值为空，则向 objId 赋值为空，如果不为空，则将 data.get("obj_id)" 转为字符串赋值给 objId 
+    - 如果 configList 不为空，遍历它，每一次遍历单体对象是 ocnfig 
+      - 如果 `config.get("module_code").toString().equals(objId)`  ，就像hashMap中put (config.get("page_code").toString(), config.get("page_type") + ":" + config.get("version")) 
+
+    - 向 data 中put ("obj_config", hashMap)
+
+  - 向返回实体对象中 封装 menuList 并返回

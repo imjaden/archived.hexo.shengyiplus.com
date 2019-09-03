@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "2087e50b-c761-4039-b73e-4a7fe8d69d11",
+		"name": "胜因学院接口PostMan测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "注册页",
+			"item": [
+				{
+					"name": "注册DONE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/api/portal/wx/tracking-code/select-info?repGroup=&enterpriseUuid=&qrCodeUuid=12345678901234567890123456789012&menu_uuid=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"portal",
+								"wx",
+								"tracking-code",
+								"select-info"
+							],
+							"query": [
+								{
+									"key": "repGroup",
+									"value": ""
+								},
+								{
+									"key": "enterpriseUuid",
+									"value": ""
+								},
+								{
+									"key": "qrCodeUuid",
+									"value": "12345678901234567890123456789012"
+								},
+								{
+									"key": "menu_uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录页",
+			"item": [
+				{
+					"name": "手机号登录",
+					"item": [
+						{
+							"name": "获取企业列表DONE",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9091/portal/v2/account-number-login/enterprise-list?repGroup=none&enterpriseUuid=b61ab40daa694ec8955621937f65a81b&repCode=&mobile=18855800879&password=4e649545491a1c27a429444695664df9&menu_uuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"portal",
+										"v2",
+										"account-number-login",
+										"enterprise-list"
+									],
+									"query": [
+										{
+											"key": "repGroup",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseUuid",
+											"value": "b61ab40daa694ec8955621937f65a81b"
+										},
+										{
+											"key": "repCode",
+											"value": ""
+										},
+										{
+											"key": "mobile",
+											"value": "18855800879"
+										},
+										{
+											"key": "password",
+											"value": "4e649545491a1c27a429444695664df9"
+										},
+										{
+											"key": "menu_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取用户openId(需要code)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "enterpriseUuid",
+										"value": "a6ee40566a0844d485b360f6424251c4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\":\"021BVVAi1Ivekv0t9izi17eNAi1BVVAd\",\n\t\"menu_uuid\":\"\",\n\t\"mobile\":\"18855800879\",\n\t\"repCode\":\"none\",\n\t\"repGroup\":\"none\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9091/api/portal/wx/query-user-openid",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"api",
+										"portal",
+										"wx",
+										"query-user-openid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "推送信息（问题：前端发送的 \"toUser\" 字段值是 openId 内容，数据库查询需要的是 企业用户关联表 sup_user_enterprise 中的 \"uuid\" 字段)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "enterpriseUuid",
+										"value": "a6ee40566a0844d485b360f6424251c4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"data\":{\n\t\t\"keyword1\":{\"value\": \"2019/9/2 下午4:35:07\"},\n\t\t\"keyword2\":{\"value\": \"王稳\"},\n\t\t\"keyword3\":{\"value\": \"无限精益宣\"},\n\t\t\"keyword4\":{\"value\": \"18855800879\"}\n\t},\n\t\"emphasis_keyword\":\"keyword4.DATA\",\n\t\"enterpriseUuid\":\"a6ee40566a0844d485b360f6424251c4\",\n\t\"form_id\":\"the formId is a mock one\",\n\t\"menu_uuid\":\"\",\n\t\"page\":\"/pages/workbox/toolbox/main\",\n\t\"repGroup\":\"\",\n\t\"template_id\":\"0h1fa-ByGKMwxMVfiOXmxempa-n3XgbUPo3PgpTnBJE\",\n\t\"toUsers\":\"omt-15P5uaH77zzQ6GY5FM30Q14A\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9092/api/portal/wx/send-template-message",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"api",
+										"portal",
+										"wx",
+										"send-template-message"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取偏好设置DONE",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "enterpriseUuid",
+										"type": "text",
+										"value": "b61ab40daa694ec8955621937f65a81b"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9092/user/v1/preference?repGroup=none&enterpriseUuid=b61ab40daa694ec8955621937f65a81b&repCode=none&mobile=10000006238&platform=wxmp&menu_uuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9092",
+									"path": [
+										"user",
+										"v1",
+										"preference"
+									],
+									"query": [
+										{
+											"key": "repGroup",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseUuid",
+											"value": "b61ab40daa694ec8955621937f65a81b"
+										},
+										{
+											"key": "repCode",
+											"value": "none"
+										},
+										{
+											"key": "mobile",
+											"value": "10000006238"
+										},
+										{
+											"key": "platform",
+											"value": "wxmp"
+										},
+										{
+											"key": "menu_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "企业号登录",
+					"item": [
+						{
+							"name": "根据企业号获取企业信息DONE",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9091/user/v1/enterprise-info?repGroup=none&enterpriseUuid=&repCode=none&enterpriseCode=1000&menu_uuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"user",
+										"v1",
+										"enterprise-info"
+									],
+									"query": [
+										{
+											"key": "repGroup",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseUuid",
+											"value": ""
+										},
+										{
+											"key": "repCode",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseCode",
+											"value": "1000"
+										},
+										{
+											"key": "menu_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "用户登录DONE",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "enterpriseUuid",
+										"value": "a6ee40566a0844d485b360f6424251c4",
+										"equals": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9091/user/v1/wx-applet-login?repGroup=none&enterpriseUuid=a6ee40566a0844d485b360f6424251c4&repCode=none&mobile=18855800879&password=4e649545491a1c27a429444695664df9&menu_uuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"user",
+										"v1",
+										"wx-applet-login"
+									],
+									"query": [
+										{
+											"key": "repGroup",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseUuid",
+											"value": "a6ee40566a0844d485b360f6424251c4"
+										},
+										{
+											"key": "repCode",
+											"value": "none"
+										},
+										{
+											"key": "mobile",
+											"value": "18855800879"
+										},
+										{
+											"key": "password",
+											"value": "4e649545491a1c27a429444695664df9"
+										},
+										{
+											"key": "menu_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "微信登录",
+					"item": [
+						{
+							"name": "获取企业列表(需要code）",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9091/portal/v2/wx-login/enterprise-list-v2?repGroup=none&enterpriseUuid=&repCode=none&code=011dv3xh2iQ0nC0HVjyh2gb3xh2dv3xA&menu_uuid=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9091",
+									"path": [
+										"portal",
+										"v2",
+										"wx-login",
+										"enterprise-list-v2"
+									],
+									"query": [
+										{
+											"key": "repGroup",
+											"value": "none"
+										},
+										{
+											"key": "enterpriseUuid",
+											"value": ""
+										},
+										{
+											"key": "repCode",
+											"value": "none"
+										},
+										{
+											"key": "code",
+											"value": "011dv3xh2iQ0nC0HVjyh2gb3xh2dv3xA"
+										},
+										{
+											"key": "menu_uuid",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "报表",
+			"item": [
+				{
+					"name": "获取报表DONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "enterpriseUuid",
+								"value": "b61ab40daa694ec8955621937f65a81b",
+								"equals": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9091/api/portal/wx/report-menu?repGroup=&enterpriseUuid=b61ab40daa694ec8955621937f65a81b&roleId=none&roleUuids=55f666e2b1e911e99ca1506b4b26f73a&menu_uuid=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"portal",
+								"wx",
+								"report-menu"
+							],
+							"query": [
+								{
+									"key": "repGroup",
+									"value": ""
+								},
+								{
+									"key": "enterpriseUuid",
+									"value": "b61ab40daa694ec8955621937f65a81b"
+								},
+								{
+									"key": "roleId",
+									"value": "none"
+								},
+								{
+									"key": "roleUuids",
+									"value": "55f666e2b1e911e99ca1506b4b26f73a"
+								},
+								{
+									"key": "menu_uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "工具箱",
+			"item": [
+				{
+					"name": "获取工具箱DONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "enterpriseUuid",
+								"value": "a6ee40566a0844d485b360f6424251c4",
+								"equals": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9092/api/portal/wx/toolbox-menu?repGroup=&enterpriseUuid=a6ee40566a0844d485b360f6424251c4&roleId=none&roleUuids=55f666e2b1e911e99ca1506b4b26f73a&menu_uuid=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"api",
+								"portal",
+								"wx",
+								"toolbox-menu"
+							],
+							"query": [
+								{
+									"key": "repGroup",
+									"value": ""
+								},
+								{
+									"key": "enterpriseUuid",
+									"value": "a6ee40566a0844d485b360f6424251c4"
+								},
+								{
+									"key": "roleId",
+									"value": "none"
+								},
+								{
+									"key": "roleUuids",
+									"value": "55f666e2b1e911e99ca1506b4b26f73a"
+								},
+								{
+									"key": "menu_uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "'我的'页",
+			"item": [
+				{
+					"name": "查询formId量DONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9091/api/portal/wx/formId-num?repGroup=none&enterpriseUuid=a6ee40566a0844d485b360f6424251c4&mobile=10000006238&repCode=none&menu_uuid=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"portal",
+								"wx",
+								"formId-num"
+							],
+							"query": [
+								{
+									"key": "repGroup",
+									"value": "none"
+								},
+								{
+									"key": "enterpriseUuid",
+									"value": "a6ee40566a0844d485b360f6424251c4"
+								},
+								{
+									"key": "mobile",
+									"value": "10000006238"
+								},
+								{
+									"key": "repCode",
+									"value": "none"
+								},
+								{
+									"key": "menu_uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取企业管理列表DONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "enterpriseUuid",
+								"value": "b61ab40daa694ec8955621937f65a81b",
+								"equals": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9091/api/portal/wx/enterprise-menu-list?repGroup=&enterpriseUuid=b61ab40daa694ec8955621937f65a81b&roleUuids=0b50e480b1e811e99ca1506b4b26f73a&menu_uuid=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"portal",
+								"wx",
+								"enterprise-menu-list"
+							],
+							"query": [
+								{
+									"key": "repGroup",
+									"value": ""
+								},
+								{
+									"key": "enterpriseUuid",
+									"value": "b61ab40daa694ec8955621937f65a81b"
+								},
+								{
+									"key": "roleUuids",
+									"value": "0b50e480b1e811e99ca1506b4b26f73a"
+								},
+								{
+									"key": "menu_uuid",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
