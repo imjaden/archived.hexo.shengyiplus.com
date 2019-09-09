@@ -764,9 +764,9 @@ type: 接口文档
 
   - 如果menuList非空，返回实体信息中封装 menuList 并返回
 
-## '我的'页
+## [我的]
 
-### 查询'formId' 数量
+### 查询 formId 数量
 
 ```
   get api/portal/wx/formId-num
