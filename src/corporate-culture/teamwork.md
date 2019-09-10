@@ -175,10 +175,8 @@ puts "markdown style guide!"
 ```
 
 2. 使用 `gap` 操作的 commit 行为都会修改 `version.json` 中 `commit` +1
-3. 所有项目都支持 `gap` 命令
-    - Node.js 项目 `npm run gap <type> <module> <message>`
-    - Ruby 项目 `bash tool.sh gap <type> <module> <message>`
-    - Bash 项目 `bash tool.sh gap <type> <module> <message>`
+3. 所有项目都支持 `gap` 命令 `./tool.sh gap <type> <module> <message>`
+4. 若项目中未支持 `gap` 请联系管理员
 
 ## 开发工具
 

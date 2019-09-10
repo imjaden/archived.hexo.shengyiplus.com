@@ -1,6 +1,6 @@
 ---
-title: SypCtl说明文档
-type: SypCtl说明文档
+title: SypCtl 工具
+type: SypCtl 工具
 ---
 
 ## 兼容性

@@ -20,3 +20,11 @@ type: 源码体系
 4. 运维脚本中**不允许出现业务数据库名称**，若有疑惑请联系管理员
 5. 使用 [gap 规范](/developer/style-guide/gitlab.html) 提交代码
 6. 在 [Gitlab发起请求合并](/developer/style-guide/gitlab.html#Gitlab-请求合并)
+
+## 源码协作
+
+- [SypCtl](http://gitlab.ibi.ren/syp-apps/sypctl)
+- [SypUtils](http://gitlab.ibi.ren/shengyiplus/syp-utils)
+- [GitAutoPush](http://gitlab.ibi.ren/shengyiplus/GitAutoPush)
+- [SypDocument](http://gitlab.ibi.ren/shengyiplus/syp-documents)
+- [SypWebassets](http://gitlab.ibi.ren/shengyiplus/syp-webassets)
