@@ -7,7 +7,8 @@
   "scripts": {
     "start": "hexo server",
     "build": "hexo clean && hexo generate",
-    "deploy": "nm run build && hexo deploy",
+    "deploy-deprecated": "nm run build && hexo deploy",
+    "deploy": "rm -rf syp-documents && mv public syp-documents && scp -r syp-documents root@47.97.19.33:/data/www/",
     "gac": "node git-utils.js gac",
     "gap": "node git-utils.js gap"
   },

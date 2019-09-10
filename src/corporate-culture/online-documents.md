@@ -7,9 +7,20 @@ type: 在线文档
 
 该站点基于 [Hexo](https://hexo.io) 构建而成。网站内容在 `src` 文件夹内，格式为 Markdown。欢迎 issue 或 pull request。
 
-在线地址：[http://doc.idata.mobi](http://doc.idata.mobi)
+在线地址：[doc.idata.mobi](http://doc.idata.mobi)
 
 ## 贡献内容
+
+- 步骤1: 注册 [团队gitlab](http://gitlab.ibi.ren)
+- 步骤2: 向团队申请[项目 syp-documents](http://gitlab.ibi.ren/shengyiplus/syp-documents) 开发权限
+- 步骤3: 本地生成 sshkey
+- 步骤4: 在 gitlab 账号 ssh 设置项中添加本地 sshkey
+- 步骤5: 拉取 syp-documents 项目源码
+- 步骤6: 贡献内容
+- 步骤7: 使用 [gap 规范](/developer/style-guide/gitlab.html) 提交
+- 步骤8: 申请合并
+- 步骤9: 管理员审核通过、并发布内容
+- 步骤10: 在线文档[doc.idata.mobi](http://doc.idata.mobi) 中查看自己的贡献内容
 
 ``` bash
 $ git clone git@gitlab.ibi.ren:shengyiplus/syp-documents.git
@@ -26,6 +37,17 @@ $ npm run gap <type> <module> <message>
 
 # 提交 pull-request
 ```
+
+## 图片说明
+
+为了更直观的表述自己的想法、理念，往往一图胜千言，为了保持思维导图的沉淀式更新，需要注意以下几点:
+
+1. 图片存放在本项目内 `src/images/`
+2. 图片名称与业务描述相关，方便维护、清理
+3. 图片原型(xmind/axure/或其他)维护在 `attachments/{xmind,axure}`
+
+示意效果图:
+![图片原型路径说明](/images/图片原型路径说明.png)
 
 ## `gap` 命令
 

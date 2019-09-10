@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head><meta name="generator" content="Hexo 3.9.0">
-    <title>项目体系 — 胜因学院</title>
+    <title>源码体系 — 胜因学院</title>
     <meta charset="utf-8">
     <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="项目体系 — Vue.js">
+    <meta property="og:title" content="源码体系 — Vue.js">
     <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
     <meta property="og:image" content="https://cn.vuejs.org//images/logo.png">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="项目体系 — Vue.js">
+    <meta name="twitter:title" content="源码体系 — Vue.js">
     <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
     <meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
 
@@ -38,7 +38,7 @@
     <script src="/js/vue.js"></script>
     <script>
       Vue.config.productionTip = false
-      window.PAGE_TYPE = "项目体系"
+      window.PAGE_TYPE = "源码体系"
     </script>
   </head>
   <body class="docs">
@@ -223,7 +223,7 @@
     
     
     <li>
-      <a href="/developer/project-connections.html" class="sidebar-link current">项目体系</a>
+      <a href="/developer/project-connections.html" class="sidebar-link current">源码体系</a>
     </li>
   
 </ul>
@@ -266,20 +266,31 @@
 -->
 
 
-<div class="content 项目体系 with-sidebar ">
+<div class="content 源码体系 with-sidebar ">
   
     
       
     
   
   
-    <h1>项目体系</h1>
+    <h1>源码体系</h1>
   
 
   
 
   
     <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/源码体系.png" alt="源码体系"></p>
+<p><em>注: attachments/xmind/源码体系.xmind</em></p>
+<h2 id="数据库运维"><a href="#数据库运维" class="headerlink" title="数据库运维"></a>数据库运维</h2><p>运维流程:</p>
+<ol start="0">
+<li>项目源码 <a href="http://gitlab.ibi.ren/shengyiplus/syp-model-scripts" target="_blank" rel="noopener">syp-model-scripts</a></li>
+<li>定位模块对应的运维脚本，若没有请联系管理员</li>
+<li>在业务数据库测试确认功能运行正常</li>
+<li>运维到脚本中的<strong>代码可重复被执行</strong>，即运维脚本可重复执行</li>
+<li>运维脚本中<strong>不允许出现业务数据库名称</strong>，若有疑惑请联系管理员</li>
+<li>使用 <a href="/developer/style-guide/gitlab.html">gap 规范</a> 提交代码</li>
+<li>在 <a href="/developer/style-guide/gitlab.html#Gitlab-请求合并">Gitlab发起请求合并</a></li>
+</ol>
 
   
   
