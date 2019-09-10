@@ -67,3 +67,20 @@ type: Gitlab提交规范
     - Ruby 项目 `bash tool.sh gap <type> <module> <message>`
     - Bash 项目 `bash tool.sh gap <type> <module> <message>`
 
+## Gitlab 请求合并
+
+1. 本地代码使用 `gap` 命令提交
+2. 打开并登录 [gitlab.ibi.ren](http://gitlab.ibi.ren)
+3. 点击页面 [Merge Request]，点击按钮 [New Merge Request]
+4. 选择自己的分支及要提交的目标分支
+    - 要提交的源码分支(Source Branch)，一般分支名称是自己名称
+    - 要提交的目标分支(Target Branch), 一般以 master 作为后续
+
+![gitlab-new-merge-request.png](/images/gitlab-new-merge-request.png)
+
+5. 依然按照上述的**提交格式**整理提交描述，`type` 为 `merge`。
+6. 选择该负责项目的代码审核人(Assignee)。
+
+![gitlab-new-merge-request-submit.png](/images/gitlab-new-merge-request-submit.png)
+
+7. 提交后(Submit merge request) 后，微信通知项目负责审核代码。

@@ -3,19 +3,31 @@ title: 胜因学院(小程序)
 type: 胜因学院(小程序)
 ---
 
-## 完整业务流程
+## 业务流程图
 
-![胜因学院小程序-业务流程](/images/胜因学院小程序-业务流程图.png)
+![胜因学院-业务流程图](/images/胜因学院-业务流程图.png)
+
+*注: attachments/xmind/胜因学院-业务流程图.xmind*
+
+## 业务效果图
+
+![胜因学院小程序-业务效果图](/images/胜因学院-小程序业务效果图.png)
+
+*注: TODO-待补充 axure 原型*
 
 ## 业务模块框架
 
-![胜因学院小程序-业务流程](/images/胜因学院小程序-模块框架图.png)
+![胜因学院小程序-业务流程](/images/胜因学院-小程序模块框架图.png)
 
-[登录模块接口文档](/developer/api-guide/syp-wxmp.html)
+*注: attachments/xmind/胜因学院-小程序功能框架图.xmind*
+
+接口文档: [登录模块](/developer/api-guide/syp-wxmp.html)
 
 ## 积分流程图
 
 ![小程序积分说明](/images/小程序积分说明.png)
+
+*注: attachments/xmind/胜因学院-小程序用户与微信账户的关联.xmind*
 
 [模板消息-微信小程序官方](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/template-message.html):
 > 步骤一：获取模板 ID
