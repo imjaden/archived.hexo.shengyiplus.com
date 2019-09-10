@@ -1,1 +1,1 @@
-{"version":[{"changelog":"胜因所有项目统一gap命令","version":"0.1.1/11"}]}
+{"versions":[{"changelog":"修正changelog日志","version":"0.1.1/12"},{"changelog":"修正 changelog 读取逻辑","version":"0.1.1/13"}]}
