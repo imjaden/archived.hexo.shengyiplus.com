@@ -3,7 +3,29 @@ title: 团队协作
 type: 团队协作
 ---
 
-## Markdown 语法
+## Mac 推荐
+
+### KeyCastr
+
+功能亮点: 实时显示键盘的点击按钮，在外连 Window布局键盘时 预防混淆 `Command` `Ctl` 等按键
+
+下载链接: [github: keycastr/keycastr](https://github.com/keycastr/keycastr/releases)
+
+### CheatSheet
+
+功能亮点: 使用任何工具时，忘记了快捷键**常按 `Command` 键**即可展示该工具的快捷命令图谱
+
+下载链接: [CheatSheet](https://cheatsheet-mac.en.softonic.com/mac)
+
+### Dash
+
+功能亮点: 集成了几乎所有开发语言或工具的说明文档(也支持自主补充说明文档)
+
+下载链接: [Dash for Mac](https://kapeli.com/dash)
+
+## Markdown 
+
+### 语法
 
 [Markdown](http://www.markdown.cn/) 是一个 Web 上使用的文本到HTML的转换工具，可以通过简单、易读易写的文本格式生成结构化的HTML文档。目前 github、Stackoverflow 等网站均支持这种格式。
 
@@ -27,7 +49,7 @@ Markdown 的目标是实现**「易读易写」**。
 | HR                  | -----                 
 
 
-## Markdown 规范
+### 规范
 
 Markdown 语法是对错问题，Markdown 规范是内部协作整理文字时的默认的文字规范。
 
@@ -35,7 +57,7 @@ Markdown 语法是对错问题，Markdown 规范是内部协作整理文字时�
 2. 代码块独立占一行
 3. 多级列表时，子级结束时使用空行隔开
 
-### 示例效果
+### 示例
 
 #### 示例四级标题
 
@@ -55,7 +77,7 @@ puts "markdown style guide!"
 - 列表2
 - 列表3
 
-### 示例源码
+### 源码
 
 ```
 #### 示例四级标题
@@ -80,13 +102,14 @@ puts "markdown style guide!"
 
 ## 工作日志
 
-### 工作日志格式
+### 格式
 
 ```
 ### 2017年3月23日 13 星期四 下午4:45
 
 - DOING
     - 正做事项二
+
 - TODO
     - 待做事项三
         \`\`\`
@@ -99,7 +122,7 @@ puts "markdown style guide!"
 
 小建议：**日期与时间可以使用快捷键快速插入**
 
-### 工作日志规范
+### 规范
 
 - 工作日志按**时间逆序**。
 - Markdown 标签之间**间隔一行**。。
@@ -111,8 +134,14 @@ puts "markdown style guide!"
 
 ## 交流规范
 
-1. 业务相关的协作交流使用[印象笔记](https://www.yinxiang.com/)
-2. 家庭作业的交付是 md/pdf 两个文档，具体见[培训交付规范](/corporate-culture/workplace-cognition.html#培训交付规范)
+1. 家庭作业的交付是 md/pdf 两个文档，具体见[培训交付规范](/corporate-culture/workplace-cognition.html#培训交付规范)
+2. 业务相关的协作交流使用[印象笔记](https://www.yinxiang.com/)
+3. 印象笔记的使用最佳配置:
+     - 文件夹列表使用[侧列表视图]视野开阔
+     - 文档标题保留[标题][已更新时间]；右键标题栏即可配置；拖动标题栏可调整顺序
+
+    ![印象笔记-工作日志-布局规范](/images/印象笔记-工作日志-布局规范.png)
+    ![印象笔记-工作日志-标题栏规范](/images/印象笔记-工作日志-标题栏规范.png)
 
 ## Gitlab 协作
 
@@ -181,15 +210,17 @@ puts "markdown style guide!"
 ## 开发工具
 
 - [印象笔记](https://www.yinxiang.com/)
+- [WonderPen](https://www.atominn.com/wonderpen)
 - [微信](https://weixin.qq.com)
-- 微信小程序开发工具
-- Sublime Text
+- [微信小程序开发工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+- [Google Chrome](https://www.google.cn/chrome/index.html)
+- [RDM - RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases)
 - Navicat
-- RDM
-- XMind
-- Chrome
+- Sublime Text
+- [XMind](https://www.xmind.cn/)
+- [Axure](https://www.axure.com/download)
 - Iterm2/OhMyZsh
 - IntelliJ IDEA
 - Android Studio
 - Kettle
-- PowerBI
+- [PowerBI](http://app.powerbi.com)
