@@ -143,6 +143,16 @@ puts "markdown style guide!"
     ![印象笔记-工作日志-布局规范](/images/印象笔记-工作日志-布局规范.png)
     ![印象笔记-工作日志-标题栏规范](/images/印象笔记-工作日志-标题栏规范.png)
 
+## 功能文档
+
+![功能说明文档规范.png](/images/功能说明文档规范.png)
+
+*注: attachments/xmind/功能说明文档规范.xmind*
+
+## 交付规范
+
+![培训交付规范](/images/培训交付规范.png)
+
 ## Gitlab 协作
 
 ### 思维导图
