@@ -23,6 +23,7 @@ code_dir: downloads/code
 # Directory
 source_dir: src
 public_dir: public
+partial_dir: _partials
 
 # Writing
 new_post_name: :title.md # File name of new posts

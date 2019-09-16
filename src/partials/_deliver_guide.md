@@ -1,17 +1,6 @@
 ---
-title: 职场共识
-type: 职场共识 
+layout: partial
 ---
-
-## 职场认知
-
-![职场认知闭环](/images/职场认知闭环.png)
-
-*注: attachments/xmind/职场认知闭环.xmind*
-
-## 职场仪式感
-
-![职场仪式感](/images/职场仪式感.png)
 
 ## 交付规范
 
