@@ -17,6 +17,7 @@ type: 团队协作
 
 下载链接: [CheatSheet](https://cheatsheet-mac.en.softonic.com/mac)
 
+
 ### Dash
 
 功能亮点: 集成了几乎所有开发语言或工具的说明文档(也支持自主补充说明文档)
@@ -151,13 +152,58 @@ puts "markdown style guide!"
 
 ## 交付规范
 
-![培训交付规范](/images/培训交付规范.png)
+### 思维脑图
+
+![培训交付规范](/images/培训总结交付规范-01.png)
+
+*注: attachments/xmind/培训总结交付规范.xmind*
+
+### 注意事项
+
+1. 明确交付主题，创建**主题名称的目录**
+2. 图片文件命名以**主题为前缀**，以**序号为后缀**
+2. 创建 `images` 目录，并把相关图片放在该目录
+3. `markdown` 原稿中使用**相对路径**引用图片
+4. `markdown` 原稿与导出的 PDF 文档放在主题目录
+5. 打包 `zip` 压缩文档作为交付文档
+
+### 交付示例
+
+1. *示例文档*目录结构
+
+  ```
+  $ tree Desktop/
+
+  Desktop/
+  ├── 交付文档示例
+  │   ├── images
+  │   │   ├── 交付文档示例-01.jpeg
+  │   │   └── 交付文档示例-02.png
+  │   ├── 交付文档示例.md
+  │   └── 交付文档示例.pdf
+  └── 交付文档示例.zip // 交付文档
+  ```
+
+2. 图片引用示例
+
+```
+## 交付文档示例
+
+![交付文档示例-01](images/交付文档示例-01.jpeg)
+![交付文档示例-02](images/交付文档示例-02.png)
+```
+
+2. 配置 `.md` 文档默认使用 MacDown 软件打开
+
+  ![培训总结交付规范](/images/培训总结交付规范-02.png)
 
 ## Gitlab 协作
 
 ### 思维导图
 
 ![Gitlab协作规范](/images/Gitlab协作规范.png)
+
+*注: attachments/xmind/Gitlab协作规范.xmind*
 
 ### 提交格式
 
@@ -220,7 +266,7 @@ puts "markdown style guide!"
 ## 开发工具
 
 - [印象笔记](https://www.yinxiang.com/)
-- [WonderPen](https://www.atominn.com/wonderpen)
+- [MacDown](https://macdown.uranusjr.com/)
 - [微信](https://weixin.qq.com)
 - [微信小程序开发工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 - [Google Chrome](https://www.google.cn/chrome/index.html)

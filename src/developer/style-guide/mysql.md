@@ -20,6 +20,93 @@ type: MySQL 编程规范
 - 禁止明文存储密码。 
 - 禁止跨库访问数据。
 
+## SQL 规范
+
+- 建议 SQL 语句小写，包括 SQL 关键字、保留字。
+- `select` `from` `left join` `right join` `inner join` `where` `group by` `order by` `limit` 左对齐
+- 右缩进为两个空格。
+- `join` 与 `on` 在同一行。
+- SQL 代码段之间**空一行**。
+- **鼓励添加简洁的注释，增加代码阅读性**。
+- 单字段赋值, 必须 `limit 1`。
+
+  ```
+  use mysql;
+
+  -- 高版本 MySQL 约束强，没有显式 limit 1 直接抛语法错误
+  set @user = (
+    select `User` 
+    from user
+    limit 1
+  );
+
+  select convert(@user using utf8) as user;
+  ```
+
+- 多字段赋值, 使用一条 `select`。
+
+  ```
+  use mysql;
+
+  -- 本质是使用最后一行结果集赋值
+  -- 1. 若 limit 2，赋值的是第二行结果集
+  -- 2. `:=` 是赋值, `=` 是比较
+  select 
+    @host := `Host`,
+    @user := `User` 
+  from user
+  limit 1;
+
+  select 
+    convert(@host using utf8) as host, 
+    convert(@user using utf8) as user;
+  ```
+
+  或
+
+  ```
+  use mysql;
+
+  select 
+    `Host`, `User` into @host, @user 
+  from user
+  limit 1;
+
+  select 
+    convert(@host using utf8) as host, 
+    convert(@user using utf8) as user;
+  ```
+
+- 事务(`transaction`)与 ACID
+
+  ```
+  drop procedure if exists `pro_sql_acid_example`;
+  delimiter ;;
+  create procedure `pro_sql_acid_example`()
+  begin
+    declare is_sql_error integer default 0;
+    declare continue handler for sqlexception set is_sql_error = 1;
+    start transaction;
+
+    -- 业务SQL, CRUD 语法错误时，取消本次所有数据操作
+    -- 业务SQL一切正常，此处返回结果集
+
+    if is_sql_error = 1 then
+      rollback;
+      select 'rollback with sql exception';
+      -- 根据业务需要，返回对应的内容
+    else
+      commit;
+      -- 此时仅 commit, 避免查询结果集语句出错
+    end if;
+  end
+  ;;
+  delimiter ;
+
+  call pro_sql_acid_example();
+  ```
+
+
 ## 查询规范
 
 - 拆分复杂 SQL 为多个小 SQL，或创建汇总中间表（利用 `query cache`和多核 `cpu`）。
@@ -36,7 +123,7 @@ type: MySQL 编程规范
     - c) `insert ignore`
     - d) `insert into values() `
 
-## 表设计规范
+## 表设计
 
 - 推荐 `utf8mb4`。`utf8mb4` 是真正意义上的 `utf-8`。
 - 必须有主键，使用`unsigned`自增列作主键；再创建 `uuid` 字段，作为业务主键。
@@ -53,7 +140,7 @@ type: MySQL 编程规范
 - 禁止`default null`，建议`not null` 设置默认值。
 - 不建议使用 `enum` 类型，使用 `tinyint` 来代替。
 
-## 索引设计规范
+## 索引设计
 
 - 唯一索引命名 `uniq_字段1_字段2`，非唯一索引命名 `idx_字段1_字段2`。
 - 建立索引时，务必先 `explain`，查看索引使用情况；禁止冗余索引；禁止重复索引。
@@ -63,14 +150,14 @@ type: MySQL 编程规范
 - 不在索引列进行数学运算和函数运算（参与了运算的列不会引用索引）
 - 复合索引须符合最左前缀的特点建立索引（MySQL 使用复合索引时从左向右匹配）
 
-## 存储过程规范
+## 存储过程
 
 - 使用 `pro_存储过程名`。
 - 接收参数使用 `var_字段名`。
 - 接收参数将：`in var_data_enterprise_uuid varchar (100)`, `in var_data_enterprise_code varchar (100)`放置接收参数的末尾。
 - 尽可能减少游标的使用。
 
-## 业务场景规范
+## 业务场景
 
 - 建表时必带字段：
 
@@ -105,7 +192,7 @@ type: MySQL 编程规范
 - 当需要接受当前登录人的 `uuid` 时，使用 `emp_uuid`字段接收。
 - 当需要接受分页时，使用`start_num`、`end_num`字段接收。
 
-### SQL 编写规范
+### SQL 规范
 
 - 查询时`join`表时如无特殊情况需加上`data_enterprise_code`和`delete_status`的关联筛选。
 - 编写 SQL 时 `where` 条件中养成带上`data_enterprise_data`、`data_enterprise_code`和`delete_status`字段的筛选。
@@ -170,9 +257,11 @@ type: MySQL 编程规范
   }
   ```
 
-## 说明文档规范
+## 功能文档
 
-- 整理业务表创表语句，确认说明字段都有备注
+详情内链: [职场协作-功能文档](/corporate-culture/teamwork.html#%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3)
+
+- 梳理建表语句，确认字段都有备注
 - 梳理说明业务 SQL 并补充注释
 - 整理业务表模型 E-R 图
 
