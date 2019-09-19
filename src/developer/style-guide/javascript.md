@@ -8,7 +8,7 @@ type: Javascript 编程规范
 - 标准变量采用驼峰式命名
 - ID 在变量名中全大写
 - 常量全大写，用下划线连接构造函数，大写第一个字母
-- jquery 对象必须以 $ 开头命名
+- JQuery 对象必须以 $ 开头命名
 
 ```
 let thisIsMyName;
@@ -31,6 +31,7 @@ let $body = $('body');
 
 > 小驼峰命名法，可使用常见动词约定：
 
+- `{ctl}{Event}`, 控件的操作事件，示例: `radioChange`, `btnSaveClick`
 - canXXX 判断是否可执行某个动作，函数返回布尔值。true：可执行；false：不可执行
 - hasXXX 判断是否含有某个值， 函数返回布尔值。true：含有此值；false：不含有此值
 - isXXX 判断是否为某个值，函数返回布尔值。true：为某个值；false：不为某个值
