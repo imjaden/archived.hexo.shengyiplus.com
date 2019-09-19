@@ -263,6 +263,32 @@ puts "markdown style guide!"
 3. 所有项目都支持 `gap` 命令 `./tool.sh gap <type> <module> <message>`
 4. 若项目中未支持 `gap` 请联系管理员
 
+### 请求合并
+
+- 进入[项目页面](http://gitlab.ibi.ren/)
+- 创建请求合并(New merge request)
+- 源分支(Source Branch) 选择自己的开发分支
+- 目标分支(Target Branch) 选择项目的主分支(dev-0.\*-master)
+- 标题(Title) 格式为: `merge@version(scope): message`
+- 审核人(Assignee) 选择项目管理员
+- 提交合并审核(Submit merge request)
+
+若提示提交的代码有冲突，则需要**取消合并申请**，在本地合并主分支代码、并测试无误后重新提交代码，再请求合并(merge request)。
+
+*代码冲突提示如下：*
+![](/images/gitlab-merge-request-conflicts.png)
+
+*本地合并主分支的代码命令:*
+
+```bash
+# 1. 合并主分支代码，根据具体主分支名称调整命令
+$ git pull origin dev-0.1-master
+# 2. 运行代码，测试确认合并后代码 运行正常
+# 3. 本地提交代码
+# 4. 线上提交合并申请
+# 5. 若有代码冲突，说明在1-4步骤期间其他同事有提交代码，继续进入步骤1
+```
+
 ## 开发工具
 
 - [印象笔记](https://www.yinxiang.com/)
@@ -271,12 +297,13 @@ puts "markdown style guide!"
 - [微信小程序开发工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 - [Google Chrome](https://www.google.cn/chrome/index.html)
 - [RDM - RedisDesktopManager](https://github.com/uglide/RedisDesktopManager/releases)
-- Navicat
+- [Navicat](https://www.navicat.com.cn/products)
 - Sublime Text
 - [XMind](https://www.xmind.cn/)
 - [Axure](https://www.axure.com/download)
-- Iterm2/OhMyZsh
-- IntelliJ IDEA
-- Android Studio
-- Kettle
+- [Iterm2](https://www.iterm2.com/)/[OhMyZsh](https://ohmyz.sh/)
+- [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)
+- [IntelliJ IDEA](http://www.jetbrains.com/idea/download/#section=mac)
+- [Android Studio](http://www.android-studio.org/index.php/download)
+- [Kettle/Data-Integration](http://mirror.bit.edu.cn/pentaho/Data%20Integration/7.1/)
 - [PowerBI](http://app.powerbi.com)
