@@ -7,6 +7,8 @@ type: 数据库运维规范
 
 ![数据库运维规范.png](/images/数据库运维规范.png)
 
+*注: attachments/xmind/数据库运维规范.xmind*
+
 ## 运维流程
 
 - 确认功能需求
@@ -26,3 +28,45 @@ type: 数据库运维规范
 - 数据库: DDL 语句、存储过程、函数、视图、事件
 - 数据表: DDL 语句、触发器、字段更新语句
 - 业务数据: 数据插入语句
+
+## ETL 流规范
+
+### 数据库分层
+
+![ETL流规范](/images/ETL流规范.png)
+
+*注: attachments/xmind/ETL流规范.xmind*
+
+由于当前业务简单（与数据量多少无关），ETL 流程分三段:（其实需要维护是两段）
+
+- **客户数据源**。
+
+  数据类型: **客户的数据库，或提供的 Excel/SQL 等数据。**  
+
+  客户数据源信息、定时提供的Excel/SQL数据备份归档在印象笔记。
+
+- **ODS 层**(操作数据存储 Operational Data Store)。
+
+  数据类型: 1. 业务需要的客户业务表；2. 非RDS层的计算数数据TDS中间表(转换数据存储 Transform Data Store)。
+
+- **RDS 层**(报表数据存储 Report/Result Data Store)。
+
+  报表加载直接使用的数据表；最佳实现方案是单层查询，若无法做到的话则考虑添加TDS数据中间表。
+
+### 表命名规范
+
+- [MySQL 编程规范](/developer/style-guide/mysql.html)
+- 库名/表名/字段名统一小写。
+- 库名/表名/字段名禁止使用 mysql 保留字。
+- ODS 层业务表命名: `ods_业务表名`。若客户数据表名有大写(Oracle/SQLServer), 则按驼峰转下划线规则，比如 `salesA` 对应 `ods_sales_a`。
+- ODS 层中间表命名: `tds_功能描述`。比如聚合汇总后的粉丝用户画像中间表 `tds_fans_personas`，若基于中间表多次计算的中间表在保持原表名后继续追加功能描述，比如基于粉丝用户画像聚合出区域分布表 `tds_fans_personas_regional_distributions`
+- RDS 层数据表命名: `rds_数据表`。原则上 1. RDS 表数据量应该很小；2. RDS 数据只能源自 TDS 中间表。
+
+### 备份/其他规范
+
+- ODS/RDS 层所有的数据表设计、存储过程、触发器、视图、事件都需要维护在 [SypModelScripts](http://gitlab.ibi.ren/shengyiplus/syp-model-scripts)
+- ODS 层的 ODS 业务表数据需要每日备份，并做人工检查。
+- 存储过程按功能需求设计，禁止不同功能的需求使用同一个存储过程。
+- 定时事件(event) 按功能需求设计，禁止不同功能的需求使用同一个定时事件。
+
+

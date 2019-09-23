@@ -42,5 +42,9 @@
     {
         "changelog": "补充函数命名规范",
         "version": "0.1.1/23"
+    },
+    {
+        "changelog": "补充ETL流规范",
+        "version": "0.1.1/24"
     }
 ]}
