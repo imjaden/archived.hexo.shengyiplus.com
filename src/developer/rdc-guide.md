@@ -7,7 +7,9 @@ type: RDC 接口
 
 **RDC**(Remote Data Call) 接口是动态 API 的一种实现方式。
 
-![](/images/RDC功能流程图.png)
+![RDC功能流程图](/images/RDC功能流程图.png)
+
+*注: attachments/xmind/RDC功能流程图.xmind*
 
 ## 开发规范
 

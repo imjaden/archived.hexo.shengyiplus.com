@@ -38,5 +38,17 @@
     {
         "changelog": "补充数据库运维规范说明文档",
         "version": "0.1.1/22"
+    },
+    {
+        "changelog": "补充函数命名规范",
+        "version": "0.1.1/23"
+    },
+    {
+        "changelog": "补充ETL流规范",
+        "version": "0.1.1/24"
+    },
+    {
+        "changelog": "补充职场协作的说明",
+        "version": "0.1.1/25"
     }
 ]}
