@@ -13,6 +13,7 @@
     <li><h4>功能文档</h4></li>
     <li>
       <ul>
+        <li><a href="<%- url_for("/developer/api-design-guide.html") %>" class="nav-link<%- page.path.match(/api-design-guide/) ? ' current' : '' %>">API 设计<small></small></a></li>
         <li><a href="<%- url_for("/developer/rdc-guide.html") %>" class="nav-link<%- page.path.match(/rdc-guide/) ? ' current' : '' %>">RDC 接口<small></small></a></li>
         <li><a href="<%- url_for("/developer/menu-guide.html") %>" class="nav-link<%- page.path.match(/menu-guide/) ? ' current' : '' %>">业务菜单规范<small></small></a></li>
         <li><a href="<%- url_for("/developer/database-devops-guide.html") %>" class="nav-link<%- page.path.match(/database-devops/) ? ' current' : '' %>">数据库运维<small></small></a></li>
