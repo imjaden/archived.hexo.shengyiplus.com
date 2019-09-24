@@ -11,6 +11,12 @@ type: RDC 接口
 
 *注: attachments/xmind/RDC功能流程图.xmind*
 
+## 请求流程
+
+![RDC请求流程图](/images/RDC请求流程图.png)
+
+*注: attachments/xmind/RDC请求流程图.xmind*
+
 ## 开发规范
 
 ### RDC 测试规范
@@ -24,6 +30,32 @@ type: RDC 接口
 1. 注意**备份被迁移覆盖的 RDC 用例**(P)
 2. 在开发环境(D)选择要迁移的**RDC分组**, **导出** RDC 实例、SQL、存储过程
 3. 在正式环境(P)选择被覆盖的**RDC分组**, **导入** RDC 实例、SQL、存储过程导出包
+
+## 接口文档规范
+
+```
+## 接口业务描述
+
+- Method: get/post
+- RDC分组: ljhk1cte56b684c5vmjf24
+- RDC实例: RDC_0000001
+- RDC参数: 
+    - params1: 类型，用途说明，示例
+    - params2: 类型，用途说明，示例
+
+- RDC响应体:
+
+  \`\`\`
+  [
+    {
+      "分类数": 2867,
+      "x": "乔雅登",
+      "总数": 6929,
+      "y": 41.38
+    }
+  ]
+  \`\`\`
+```
 
 ## 常见问题
 
