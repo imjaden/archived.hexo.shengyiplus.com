@@ -54,5 +54,9 @@
     {
         "changelog": "补充RDC请求流程",
         "version": "0.1.1/26"
+    },
+    {
+        "changelog": "RESTFul 接口规范",
+        "version": "0.1.1/27"
     }
 ]}
