@@ -46,5 +46,9 @@
     {
         "changelog": "补充ETL流规范",
         "version": "0.1.1/24"
+    },
+    {
+        "changelog": "补充职场协作的说明",
+        "version": "0.1.1/25"
     }
 ]}
