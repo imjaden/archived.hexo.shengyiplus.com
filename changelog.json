@@ -58,5 +58,9 @@
     {
         "changelog": "RESTFul 接口规范",
         "version": "0.1.1/27"
+    },
+    {
+        "changelog": "完善报表开发流程",
+        "version": "0.1.1/28"
     }
 ]}

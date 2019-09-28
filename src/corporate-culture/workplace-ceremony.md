@@ -3,6 +3,12 @@ title: 职场共识
 type: 职场共识 
 ---
 
+## 团队协作
+
+![团队协作体系](/images/团队协作体系.png)
+
+*注: attachments/xmind/团队协作体系.xmind*
+
 ## 职场认知
 
 ![职场认知闭环](/images/职场认知闭环.png)
