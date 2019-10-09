@@ -3,6 +3,12 @@ title: 业务菜单规范
 type: 业务菜单规范
 ---
 
+## 结构示意图
+
+![业务菜单结构图](/images/业务菜单结构图.png)
+
+*注: attachments/xmind/业务菜单结构图.xmind*
+
 ## 四个平台
 
 支持四个平台(sup_menus.platform), 每个接口独立 API 域:
