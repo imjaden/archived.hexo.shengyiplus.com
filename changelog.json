@@ -74,5 +74,9 @@
     {
         "changelog": "完善 Jenkins 部署说明",
         "version": "0.1.1/31"
+    },
+    {
+        "changelog": "完善 Jenkins 部署说明",
+        "version": "0.1.1/32"
     }
 ]}
