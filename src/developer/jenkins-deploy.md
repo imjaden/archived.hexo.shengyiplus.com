@@ -19,6 +19,7 @@ Java API 服务 | JavaApiServer
 胜因在线文档 | Documents
 
 ![项目列表](/images/jenkins-deploy/jenkins-projects.png)
+![项目列表](/images/jenkins-deploy/jenkins-deploy-view.png)
 
 ## 部署流程
 
@@ -33,6 +34,10 @@ Java API 服务 | JavaApiServer
 3. 进入正在构建的 **Build History**
 
   ![进入正在构建的 Build History](/images/jenkins-deploy/jenkins-deploy-step03.png)
+
+  或在首页左下区域查看正在构建的任务
+
+  ![项目列表](/images/jenkins-deploy/jenkins-deploy-index.png)
   
 4. 查看部署日志 **Console Output**
 
@@ -58,7 +63,7 @@ Java API 服务 | JavaApiServer
 
 ## 异常处理思路
 
-无法本地调试还是 Jenkins 部署异常，都要耐心查看 **报错信息**。
+无论本地调试还是 Jenkins 部署异常，都要耐心查看 **报错信息**，这是定位问题的源头。
 
 ### 项目语法错误
 
