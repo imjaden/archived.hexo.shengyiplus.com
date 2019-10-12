@@ -62,5 +62,21 @@
     {
         "changelog": "完善报表开发流程",
         "version": "0.1.1/28"
+    },
+    {
+        "changelog": "补充业务菜单结构思维导图",
+        "version": "0.1.1/29"
+    },
+    {
+        "changelog": "完善jenkins部署流程说明文档",
+        "version": "0.1.1/30"
+    },
+    {
+        "changelog": "完善 Jenkins 部署说明",
+        "version": "0.1.1/31"
+    },
+    {
+        "changelog": "完善 Jenkins 部署说明",
+        "version": "0.1.1/32"
     }
 ]}

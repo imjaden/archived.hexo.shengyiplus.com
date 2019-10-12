@@ -33,6 +33,7 @@ type: DataV报表流程md
 ### 将keyword的值填到语句中执行
 
 得到的sql语句是：
+
 ```sql
 SELECT round((t1.`value`-t2.`value`)/t2.`value`*100,2) as `value` FROM
   (SELECT average_year as `value` FROM kpi_baidu_index_month_summary
