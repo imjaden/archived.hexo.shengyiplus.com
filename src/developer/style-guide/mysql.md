@@ -208,7 +208,7 @@ type: MySQL 编程规范
 - 使用合理的分页方式以提高分页(`limit`)的效率。
 - 减少与数据库交互次数，尽量采用批量sql语句。 
     - a) `insert on duplicate key update`
-    - b) `replace into`
+    - b) `replace into` ([禁止使用](/developer/style-guide/mysql-insert-ignore-replace-duplicate-different.html#Replace-Into-禁用))
     - c) `insert ignore`
     - d) `insert into values()`
 

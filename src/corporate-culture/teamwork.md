@@ -3,7 +3,7 @@ title: 团队协作
 type: 团队协作
 ---
 
-## Mac 推荐
+## Mac 工具推荐
 
 ### KeyCastr
 
@@ -135,6 +135,8 @@ puts "markdown style guide!"
 
 ## 交流规范
 
+### 印象笔记
+
 1. 家庭作业的交付是 md/pdf 两个文档，具体见[培训交付规范](/corporate-culture/workplace-cognition.html#培训交付规范)
 2. 业务相关的协作交流使用[印象笔记](https://www.yinxiang.com/)
 3. 印象笔记的使用最佳配置:
@@ -143,6 +145,38 @@ puts "markdown style guide!"
 
     ![印象笔记-工作日志-布局规范](/images/印象笔记-工作日志-布局规范.png)
     ![印象笔记-工作日志-标题栏规范](/images/印象笔记-工作日志-标题栏规范.png)
+
+### 微信交流
+
+*注: 针对微信/企业微信/QQ等实时交流工具中的交流规范*。
+
+参考: [职场共识 - 协作规范](/corporate-culture/workplace-ceremony.html#协作规范)
+
+### 邮件交流
+
+Dear All，
+
+我们用邮件是正式的商务沟通，发送邮件注意基本礼仪规范：
+1. 标题（点明主旨，方便收件人在列表中查看）
+2. 收件人
+  1. 主收件人
+  2. 抄送人（只为通知到）
+  3. 密件抄送（你需要通知的人，又不想让其他收件人知道）
+3. 附件
+4. 正文
+  1. 称呼
+  2. 事项描述，尽量用列表清单，有附件的，也要在正文中说明。
+  3. 签名
+
+Thanks.
+
+**Albert Li 李昊**
+[上海胜因软件技术有限公司](http://www.intfocus.com)
+***让人和机器可以合作完成更酷的工作***
+上海市闵行区顾戴路2337号B座6楼 201110
+Tel: 86 21 51876038 | Mob: 135 8569 7734
+Mail: albert_li@intfocus.com | www.intfocus.com
+
 
 ## 功能文档
 
