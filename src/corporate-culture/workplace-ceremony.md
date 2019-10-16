@@ -70,8 +70,7 @@ type: 职场共识
 
 ![](/images/团队效率驱动图.png)
 
-
-*注: attachments/xmind/职场认知闭环.xmind*
+*注: attachments/xmind/团队效率驱动图.xmind*
 
 ## 协作规范
 
