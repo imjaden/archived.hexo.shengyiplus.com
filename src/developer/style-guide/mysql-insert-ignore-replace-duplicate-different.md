@@ -5,7 +5,6 @@ type: MySQL Insert 注意事项
 
 ## Create Table
 
-
 ```
 create table if not exists `tbl_insert_ignore_replace_duplicate` (
   `id` int(11) not null auto_increment comment '自增主键',
@@ -39,7 +38,21 @@ mysql> select * from tbl_insert_ignore_replace_duplicate;
 ```
 mysql> mysql > insert into tbl_insert_ignore_replace_duplicate(label) value ('insert');
 ERROR 1062 (23000): Duplicate entry 'insert' for key 'inx_label'
+
+mysql> show create table tbl_insert_ignore_replace_duplicate;
+
+CREATE TABLE `tbl_insert_ignore_replace_duplicate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `label` varchar(20) NOT NULL COMMENT '唯一标识',
+  `data_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '数据更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `inx_label` (`label`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='测试insert/ignore/replace/duplicate功能'
 ```
+
+虽然插入失败，但占用了一次 id+1 机会，即把 id=4 使用了，下次 id 从 5 开始。
+
+*TODO: 待确认 master-slave 集群时，slave 库中表的 `AUTO_INCREMENT` 值与 master 相同*
 
 ## Replace Into (禁用)
 
@@ -102,9 +115,13 @@ CREATE TABLE `tbl_insert_ignore_replace_duplicate` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `inx_label` (`label`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='测试insert/ignore/replace/duplicate功能'
-# 若配置了主从同步，则此时 slave 库中 tbl_insert_ignore_replace_duplicate 表的 AUTO_INCREMENT = 4
-# 当 master 库压力过大，slave 库转为 master 库时，造成 id 在 4-6 区间的数据无法同步到旧 master 库(出现 duplicate key error)
 ```
+
+若配置了主从同步，则此时 slave 库中 tbl_insert_ignore_replace_duplicate 表的 AUTO_INCREMENT = 4。
+
+当 master 库压力过大或其他情况，需要把 slave 库转为 master 库时，造成 id 在 4-6 区间的数据无法同步到旧 master 库(出现 duplicate key error)
+
+*TODO: 待实践确认*
 
 ## Insert Ignore Into
 
@@ -112,7 +129,7 @@ CREATE TABLE `tbl_insert_ignore_replace_duplicate` (
 mysql> insert ignore into tbl_insert_ignore_replace_duplicate(label) value ('insert');
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 
-# 没有什么变化
+# 无任何
 mysql> select * from tbl_insert_ignore_replace_duplicate;
 +----+-----------+---------------------+
 | id | label     | data_update_time    |
@@ -122,6 +139,17 @@ mysql> select * from tbl_insert_ignore_replace_duplicate;
 |  6 | replace   | 2019-10-16 23:28:35 |
 +----+-----------+---------------------+
 4 rows in set (0.00 sec)
+
+# AUTO_INCREMENT 还是 +1 了！
+mysql> show create table tbl_insert_ignore_replace_duplicate;
+
+CREATE TABLE `tbl_insert_ignore_replace_duplicate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `label` varchar(20) NOT NULL COMMENT '唯一标识',
+  `data_update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '数据更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `inx_label` (`label`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='测试insert/ignore/replace/duplicate功能'
 ```
 
 ## On Duplicate Key Update

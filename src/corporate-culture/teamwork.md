@@ -299,17 +299,26 @@ Mail: albert_li@intfocus.com | www.intfocus.com
 
 ### 请求合并
 
-- 进入[项目页面](http://gitlab.ibi.ren/)
+- 进入团队Gitlab[项目页面](http://gitlab.ibi.ren/)
 - 创建请求合并(New merge request)
 - 源分支(Source Branch) 选择自己的开发分支
 - 目标分支(Target Branch) 选择项目的主分支(dev-0.\*-master)
 - 标题(Title) 格式为: `merge@version(scope): message`
+- 描述(Description) 格式为:
+
+  ```
+  XYZ 申请合并:
+  1. 本次提交涉及N份源码文件，M份其他文档，已测试运行成功
+  2. 已检测代码编程规范符合要求
+  3. 已查阅说明文档(readme.md)符合预期
+  ```
+
 - 审核人(Assignee) 选择项目管理员
 - 提交合并审核(Submit merge request)
 
 若提示提交的代码有冲突，则需要**取消合并申请**，在本地合并主分支代码、并测试无误后重新提交代码，再请求合并(merge request)。
 
-*代码冲突提示如下：*
+**代码冲突**提示如下：*
 ![](/images/gitlab-merge-request-conflicts.png)
 
 *本地合并主分支的代码命令:*

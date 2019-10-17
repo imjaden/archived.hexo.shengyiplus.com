@@ -86,5 +86,9 @@
     {
         "changelog": "补充禁止使用 mysql#replace into 说明",
         "version": "0.1.1/34"
+    },
+    {
+        "changelog": "完善团队协作环节中的 gitlab 请求合并规范",
+        "version": "0.1.1/35"
     }
 ]}
