@@ -199,7 +199,7 @@ type: MySQL 编程规范
 ## 查询规范
 
 - 拆分复杂 SQL 为多个小 SQL，或创建汇总中间表（利用 `query cache`和多核 `cpu`）。
-- 用 `i`n 代替 `or`。`in` 的个数控制在 1000 以内。
+- 用 `in` 代替 `or`。`in` 的个数控制在 1000 以内。
 - 不使用负向查询，如`not in`/`like`。
 - 用`union all`代替`union`；`union all`不需要对结果集再进行排序。
 - 禁止使用 `order by rand()`。 
