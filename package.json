@@ -8,7 +8,7 @@
     "start": "hexo server",
     "build": "hexo clean && hexo generate",
     "deploy-deprecated": "nm run build && hexo deploy",
-    "deploy": "rm -rf syp-documents && mv public syp-documents && scp -p -r syp-documents syp-devops-user@gitlab.idata.mobi:/data/www/",
+    "deploy": "rm -rf syp-documents && mv public syp-documents && scp -p -r syp-documents syp-devops-user@gitlab.idata.mobi:/data/work/www/",
     "gac": "node git-utils.js gac",
     "gap": "node git-utils.js gap"
   },
