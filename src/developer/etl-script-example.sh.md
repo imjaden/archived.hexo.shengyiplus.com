@@ -1,5 +1,5 @@
 ```
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # 开发人员: Aaron
 # 更新日期: 2019-10-29
@@ -17,13 +17,7 @@
 #   6. 清理解压后的数据
 #
 set -e # 遇错即中止
-
-function logger() { echo "$(date +'%y/%m/%d %H:%M:%S') - $1" }
-export JAVA_HOME=/data/work/tools/jdk-1.8.0_192
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$JAVA_HOME/lib
-export PATH=$JRE_HOME/bin:$JAVA_HOME/bin:$PATH
-allergan_members_path=/data/allergan/allergan_members
+function logger() { echo "$(date +'%y/%m/%d %H:%M:%S') - $1"; }
 
 logger "1. 通过邮件接收压缩文档的解压密钥"
 /bin/ruby /data/work/kettle/scripts/etocrm_encrypt_automator.rb
@@ -47,5 +41,5 @@ mv ${allergan_members_path}/etocrmdata/${datestr}.zip ${allergan_members_path}/e
 logger "6. 清理解压后的数据"
 rm -rf ${allergan_members_path}/etocrmdata/user_behaviors.csv
 
-exit 0 # 声明该脚本运行成功
+exit 0 # 仪式感退出
 ```

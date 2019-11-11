@@ -85,14 +85,11 @@ type: ETL 运维
   - 变量、函数声明
   - 功能代码段
     - 合理使用 `logger`
-    - 内部脚本输出**不好**重定向到日志，以便统一收集日志
+    - 内部脚本输出**不要**重定向到日志，以便统一收集日志
   - 日志、文档归档
   - 仪式感退出码(`exit 0`)
 6. 邮件通知
 
-`sypetl` 命令:
-
-脚本调用示例 \`sypetl [etl-script-example.sh](/developer/etl-script-example.sh.html)\`
 `sypetl` 功能逻辑伪代码
 
 ```
@@ -100,6 +97,37 @@ $ find 脚本绝对路径
 $ check 注解字段
 $ bash 脚本 > 日志目录/脚本名称-日期.log
 $ send 邮件
+```
+
+
+`sypetl` 调用示例 \`sypetl intfocus [example](/developer/etl-script-example.sh.html)\`
+
+```
+$ sypetl
+操作示例:
+
+$ sypetl 公司名称 模块名称
+$ sypetlcheck 公司名称 模块名称
+
+脚本路径: /data/work/scripts/公司名称/模块名称/tools.sh
+
+$ sypetl intfocus example
+19/10/31 16:01:14 - 脚本路径: /data/work/scripts/intfocus/example/tools.sh
+19/10/31 16:01:14 - 检测必填项:
+19/10/31 16:01:14 - 配置正常 - ^# 开发人员: Aaron
+19/10/31 16:01:14 - 配置正常 - ^# 更新日期: 2019-10-29
+19/10/31 16:01:14 - 配置正常 - ^# 业务模块: SypEtl测试
+19/10/31 16:01:14 - 配置正常 - ^# 定时任务: 30 19 * * *
+19/10/31 16:01:14 - 配置正常 - ^# 代码步骤:
+19/10/31 16:01:14 - 配置正常 - ^# 更新日期: 2019-10-29
+19/10/31 16:01:14 - 配置正常 - ^# 客户名称: 艾尔建
+19/10/31 16:01:14 - 配置正常 - ^# 对接团队: 齐数ETOCRM
+19/10/31 16:01:14 - 配置正常 - ^# 代码步骤:
+19/10/31 16:01:14 - 配置正常 - ^# 业务描述:
+19/10/31 16:01:14 - 配置正常 - `set -e`
+19/10/31 16:01:14 - 日志路径: /data/work/logs/intfocus-example-191031160114.log
+19/10/31 16:01:14 - 邮件配置: /data/work/logs/sendmail.191031160114.json
+19/10/31 16:01:17 - 胜因运维<jayden@jayden.top> => jaden<jay_li@intfocus.com>, SypEtl测试, status: 250
 ```
 
 ### 备份/其他规范
