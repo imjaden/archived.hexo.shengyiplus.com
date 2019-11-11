@@ -1,6 +1,6 @@
 ---
-title: 数据库运维
-type: 数据库运维
+title: ETL 运维
+type: ETL 运维
 ---
 
 ## 思维导图
@@ -61,6 +61,74 @@ type: 数据库运维
 - ODS 层业务表命名: `ods_业务表名`。若客户数据表名有大写(Oracle/SQLServer), 则按驼峰转下划线规则，比如 `salesA` 对应 `ods_sales_a`。
 - ODS 层中间表命名: `tds_功能描述`。比如聚合汇总后的粉丝用户画像中间表 `tds_fans_personas`，若基于中间表多次计算的中间表在保持原表名后继续追加功能描述，比如基于粉丝用户画像聚合出区域分布表 `tds_fans_personas_regional_distributions`
 - RDS 层数据表命名: `rds_数据表`。原则上 1. RDS 表数据量应该很小；2. RDS 数据只能源自 TDS 中间表。
+
+### 脚本编程规范
+
+*注: 脚本部署路径参考[线上环境规范](/developer/environment-guide.html#线上环境规范)*
+
+1. 脚本第一行[Shebang](https://zh.wikipedia.org/zh-hans/Shebang) `#!/bin/bash`
+2. 脚本注解字段
+  - 开发人员: Jaden
+  - 更新日期: 2019-10-29
+  - 客户名称: Allergan
+  - 业务模块: SalesA-ODS-To-TDS
+  - 对接团队: ETOCRM
+  - 定时任务: `30 00 * * *`
+  - 业务描述: 
+  - 代码步骤:
+3. 脚本执行严格模式 `set -e`, 遇错即中止执行
+4. 规范式注释输出(日期+注释说明)函数 `logger`
+4. 脚本代码八股文
+  - `Shebang`
+  - 注解区域
+  - 开启严格模式 `set -e`
+  - 变量、函数声明
+  - 功能代码段
+    - 合理使用 `logger`
+    - 内部脚本输出**不要**重定向到日志，以便统一收集日志
+  - 日志、文档归档
+  - 仪式感退出码(`exit 0`)
+6. 邮件通知
+
+`sypetl` 功能逻辑伪代码
+
+```
+$ find 脚本绝对路径
+$ check 注解字段
+$ bash 脚本 > 日志目录/脚本名称-日期.log
+$ send 邮件
+```
+
+
+`sypetl` 调用示例 \`sypetl intfocus [example](/developer/etl-script-example.sh.html)\`
+
+```
+$ sypetl
+操作示例:
+
+$ sypetl 公司名称 模块名称
+$ sypetlcheck 公司名称 模块名称
+
+脚本路径: /data/work/scripts/公司名称/模块名称/tools.sh
+
+$ sypetl intfocus example
+19/10/31 16:01:14 - 脚本路径: /data/work/scripts/intfocus/example/tools.sh
+19/10/31 16:01:14 - 检测必填项:
+19/10/31 16:01:14 - 配置正常 - ^# 开发人员: Aaron
+19/10/31 16:01:14 - 配置正常 - ^# 更新日期: 2019-10-29
+19/10/31 16:01:14 - 配置正常 - ^# 业务模块: SypEtl测试
+19/10/31 16:01:14 - 配置正常 - ^# 定时任务: 30 19 * * *
+19/10/31 16:01:14 - 配置正常 - ^# 代码步骤:
+19/10/31 16:01:14 - 配置正常 - ^# 更新日期: 2019-10-29
+19/10/31 16:01:14 - 配置正常 - ^# 客户名称: 艾尔建
+19/10/31 16:01:14 - 配置正常 - ^# 对接团队: 齐数ETOCRM
+19/10/31 16:01:14 - 配置正常 - ^# 代码步骤:
+19/10/31 16:01:14 - 配置正常 - ^# 业务描述:
+19/10/31 16:01:14 - 配置正常 - `set -e`
+19/10/31 16:01:14 - 日志路径: /data/work/logs/intfocus-example-191031160114.log
+19/10/31 16:01:14 - 邮件配置: /data/work/logs/sendmail.191031160114.json
+19/10/31 16:01:17 - 胜因运维<jayden@jayden.top> => jaden<jay_li@intfocus.com>, SypEtl测试, status: 250
+```
 
 ### 备份/其他规范
 

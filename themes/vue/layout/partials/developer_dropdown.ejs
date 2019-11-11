@@ -13,10 +13,11 @@
     <li><h4>开发规范</h4></li>
     <li>
       <ul>
+        <li><a href="<%- url_for("/developer/environment-guide.html") %>" class="nav-link<%- page.path.match(/environment-guide/) ? ' current' : '' %>">环境规范<small></small></a></li>
+        <li><a href="<%- url_for("/developer/etl-devops-guide.html") %>" class="nav-link<%- page.path.match(/etl-devops/) ? ' current' : '' %>">ETL 运维<small></small></a></li>
         <li><a href="<%- url_for("/developer/api-design-guide.html") %>" class="nav-link<%- page.path.match(/api-design-guide/) ? ' current' : '' %>">API 设计<small></small></a></li>
         <li><a href="<%- url_for("/developer/rdc-guide.html") %>" class="nav-link<%- page.path.match(/rdc-guide/) ? ' current' : '' %>">RDC 接口<small></small></a></li>
-        <li><a href="<%- url_for("/developer/menu-guide.html") %>" class="nav-link<%- page.path.match(/menu-guide/) ? ' current' : '' %>">业务菜单规范<small></small></a></li>
-        <li><a href="<%- url_for("/developer/database-devops-guide.html") %>" class="nav-link<%- page.path.match(/database-devops/) ? ' current' : '' %>">数据库运维<small></small></a></li>
+        <li><a href="<%- url_for("/developer/menu-guide.html") %>" class="nav-link<%- page.path.match(/menu-guide/) ? ' current' : '' %>">业务菜单<small></small></a></li>
       </ul>
     </li>
     <li><h4>接口文档</h4></li>
