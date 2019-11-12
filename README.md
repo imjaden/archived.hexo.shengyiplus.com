@@ -7,7 +7,7 @@
 ## 贡献内容
 
 ``` bash
-$ git clone git@gitlab.ibi.ren:shengyiplus/syp-documents.git
+$ git clone https://gitlab.idata.mobi/shengyiplus/syp-documents.git
 
 $ cd syp-documents
 $ npm install cnpm -g --registry=https://r.npm.taobao.org
@@ -23,4 +23,5 @@ $ cnpm run deploy
 $ cnpm run gap <type> <module> <message>
 
 # 提交 pull-request
+# 访问 https://docs.idata.mobi/
 ```
