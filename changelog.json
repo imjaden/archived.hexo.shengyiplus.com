@@ -114,5 +114,9 @@
     {
         "changelog": "修正部署路径",
         "version": "0.1.1/41"
+    },
+    {
+        "changelog": "修正 README 说明信息",
+        "version": "0.1.1/42"
     }
 ]}
