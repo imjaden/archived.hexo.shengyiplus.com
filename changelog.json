@@ -122,5 +122,9 @@
     {
         "changelog": "补充README.md中访问域名等信息",
         "version": "0.1.1/43"
+    },
+    {
+        "changelog": "项目/域名/菜单配置规范说明",
+        "version": "0.1.1/44"
     }
 ]}
