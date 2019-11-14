@@ -47,3 +47,25 @@ type: 源码体系
 - [SypDocument](https://gitlab.idata.mobi/shengyiplus/syp-documents)
 - [SypWebassets](https://gitlab.idata.mobi/shengyiplus/syp-webassets)
 - [DdpScript](https://gitlab.idata.mobi/shengyiplus/DdpScript)
+
+## 域名/API
+
+1. 所有域名均为 `*.idata.mobi` 二级域名
+2. 所有域名均使用 `https` 协议
+3. 域名分配规范
+  1. CDN 域名 `cdn.idata.mobi`，过期域名<del>syp-cdn.idata.mobi</del>
+  2. API 域名 `api.idata.mobi`，过期域名<del>syp.idata.mobi</del>
+  3. Admin 域名 `admin.idata.mobi`, 过期域名<del>syp.idata.mobi</del>
+  4. Portal 域名 `portal.idata.mobi`, 过期域名<del>syp-cdn.idata.mobi</del>
+  5. 开发环境追加 `-dev`，例 `api-dev.idata.mobi`
+4. API 开发规范
+  1. API 路由禁止出现项目`工程名称`
+  2. API 路由使用**横线命名**规范
+  3. [更多 API 设计规范](/developer/api-design-guide.html)
+
+## 菜单字段
+
+[业务菜单规范](/developer/menu-guide.html)
+
+
+
