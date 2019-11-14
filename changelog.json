@@ -118,5 +118,9 @@
     {
         "changelog": "修正 README 说明信息",
         "version": "0.1.1/42"
+    },
+    {
+        "changelog": "补充README.md中访问域名等信息",
+        "version": "0.1.1/43"
     }
 ]}
