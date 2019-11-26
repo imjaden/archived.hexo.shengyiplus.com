@@ -126,5 +126,9 @@
     {
         "changelog": "项目/域名/菜单配置规范说明",
         "version": "0.1.1/44"
+    },
+    {
+        "changelog": "补充If-Else优化方案",
+        "version": "0.1.1/45"
     }
 ]}
