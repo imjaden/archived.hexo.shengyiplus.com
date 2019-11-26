@@ -1659,6 +1659,10 @@ function getPermissinList() {
   }
   ```
 
+## If-Else优化方案
+
+[If-Else优化方案](/developer/style-guide/if-else-optimize-solutions.html)
+
 ## 摘自文章
 
 - [JavaScript 编程规范(一)](https://cloud.tencent.com/developer/article/1404290)
