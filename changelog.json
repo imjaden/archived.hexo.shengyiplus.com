@@ -130,5 +130,9 @@
     {
         "changelog": "补充If-Else优化方案",
         "version": "0.1.1/45"
+    },
+    {
+        "changelog": "补充规范指南说明",
+        "version": "0.1.1/46"
     }
 ]}

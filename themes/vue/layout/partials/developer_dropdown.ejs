@@ -1,6 +1,7 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link<%- page.path.match(/\/(guide(?!\/team.html$)|api|style-guide|examples|cookbook)(\/|$)/) ? ' current' : '' %>">开发文档</a><span class="arrow"></span>
   <ul class="nav-dropdown">
+    <li><a href="<%- url_for("/developer/guide.html") %>" class="nav-link<%- page.path.match(/guide/) ? ' current' : '' %>">规范指南</a></li>
     <li><h4>编程规范</h4></li>
     <li>
       <ul>
@@ -8,6 +9,7 @@
         <li><a href="<%- url_for("/developer/style-guide/java.html") %>" class="nav-link<%- page.path.match(/-guide\/java\.html/) ? ' current' : '' %>">Java</a></li>
         <li><a href="<%- url_for("/developer/style-guide/mysql.html") %>" class="nav-link<%- page.path.match(/-guide\/mysql/) ? ' current' : '' %>">MySQL</a></li>
         <li><a href="<%- url_for("/developer/style-guide/javascript.html") %>" class="nav-link<%- page.path.match(/-guide\/javascript/) ? ' current' : '' %>">Javascript</a></li>
+        <li><a href="<%- url_for("/developer/style-guide/cdn.html") %>" class="nav-link<%- page.path.match(/-guide\/cdn/) ? ' current' : '' %>">CDN 运维</a></li>
       </ul>
     </li>
     <li><h4>开发规范</h4></li>
