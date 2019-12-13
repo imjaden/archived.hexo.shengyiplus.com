@@ -601,3 +601,7 @@ HashMap | 允许为 null | 允许为 null | AbstractMap | 线程不安全
     // 一个类中有多个 public 方法，都需要进行数行相同的参数校验操作，这个时候请抽取：
     private boolean checkParam(DTO dto) {...}
     ```
+
+## 整洁代码
+
+[整洁代码的建议列表](/developer/style-guide/tips-to-keep-java-code-clean.html)
