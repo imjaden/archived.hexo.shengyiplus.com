@@ -1663,6 +1663,10 @@ function getPermissinList() {
 
 [If-Else优化方案](/developer/style-guide/if-else-optimize-solutions.html)
 
+## 整洁代码
+
+[整洁代码的建议列表](/developer/style-guide/tips-to-keep-javascript-code-clean.html)
+
 ## 摘自文章
 
 - [JavaScript 编程规范(一)](https://cloud.tencent.com/developer/article/1404290)
