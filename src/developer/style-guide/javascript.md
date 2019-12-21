@@ -4,7 +4,7 @@ type: Javascript 编程规范
 ---
 
 ## 命名规范
-
+fv
 - 标准变量采用驼峰式命名
 - ID 在变量名中全大写
 - 常量全大写，用下划线连接构造函数，大写第一个字母
@@ -1471,7 +1471,7 @@ function getPermissinList() {
   }
   ```
 
-8. 不要在中括号内添加空格。
+8. 添加/不添加空格。
 
   > eslint: array-bracket-spacing jscs: disallowSpacesInsideArrayBrackets
 
@@ -1479,18 +1479,14 @@ function getPermissinList() {
   // 不推荐
   const foo = [ 1, 2, 3 ];
   console.log(foo[ 0 ]);
-  // 推荐
+  // 推荐(内部分隔符号后有空格)
   const foo = [1, 2, 3];
   console.log(foo[0]);
-  ```
 
-9. 在大括号内添加空格
-
-  ```
   // 不推荐
+  const foo = { clark:'kent' };
+  // 推荐(内部分隔符号后有空格)
   const foo = {clark: 'kent'};
-  // 推荐
-  const foo = { clark: 'kent' };
   ```
 
 ## 类型转换 Type Casting & Coercion

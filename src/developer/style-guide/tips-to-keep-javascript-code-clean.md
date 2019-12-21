@@ -14,20 +14,26 @@ let array = [1, 2, 3, 4],
     item,
     index;
 
+// scene1
 for(let i = 0, len = array.length; i < len; i ++) {
-  if(array[i] >= 3) {
+  if(array[i] >= 1) {
     item = array[i];
-    index = i;
-    break;
   }
 }
+// scene2
+for(let i = 0, len = array.length; i < len; i ++) {
+  if(array[i] >= 3) {
+    index = i;
+  }
+}
+// priority use a `for` when scene1 and scene2 meet
 ```
 
 *整洁方案：*
 
 ```
-item = array.find(function(ele) { return ele >= 3; })
-=> 3
+item = array.find(function(ele) { return ele >= 1; })
+=> 1
 index = array.findIndex(function(ele) { return ele >= 3; })
 => 2
 ```
