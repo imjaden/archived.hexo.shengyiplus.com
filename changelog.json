@@ -142,5 +142,9 @@
     {
         "changelog": "Javascript 代码",
         "version": "0.1.1/48"
+    },
+    {
+        "changelog": "tips-to-keep-javascript-code-clean",
+        "version": "0.1.1/49"
     }
 ]}
