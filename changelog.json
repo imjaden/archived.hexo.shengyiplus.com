@@ -146,5 +146,9 @@
     {
         "changelog": "tips-to-keep-javascript-code-clean",
         "version": "0.1.1/49"
+    },
+    {
+        "changelog": "补充 团队交流规范",
+        "version": "0.1.1/50"
     }
 ]}
