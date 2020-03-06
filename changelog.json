@@ -150,5 +150,9 @@
     {
         "changelog": "补充 团队交流规范",
         "version": "0.1.1/50"
+    },
+    {
+        "changelog": "调整 gitlab.idata.mobi",
+        "version": "0.1.1/51"
     }
 ]}
