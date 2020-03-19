@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 scriptFolder=$(dirname $0)
-test -f /root/.bash_profile && source /root/.bash_profile
+test -f ~/.bash_profile && source ~/.bash_profile
 
 cd ${scriptFolder}
 case "$1" in
     git:auto:push|gap)
         shift
-        java -cp dependencies -jar gap.jar $@
+        java -jar GitAutoPush@0.1.2.jar $@
     ;;
     start)
         npm run start

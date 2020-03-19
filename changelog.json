@@ -154,5 +154,11 @@
     {
         "changelog": "调整 gitlab.idata.mobi",
         "version": "0.1.1/51"
+    },
+    {
+        "createdat": "2020-03-19 13:54:30",
+        "changelog": "完善git协作规范",
+        "version": "0.1.1/52",
+        "timestamp": "1584597270438"
     }
 ]}

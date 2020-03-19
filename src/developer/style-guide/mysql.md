@@ -5,7 +5,7 @@ type: MySQL 编程规范
 
 ## 审核规范
 
-- [数据库运维脚本](http://gitlab.ibi.ren/shengyiplus/syp-model-scripts), 向 DBA 审核开发权限。
+- [数据库运维脚本](https://gitlab.idata.mobi/shengyiplus/syp-model-scripts), 向 DBA 审核开发权限。
 - 表结构变更 DBA 审核未通过的，不允许上线。
 - 运维 SQL 脚本必须本地执行成功才能提交合并，由 DBA 部署运维脚本。
 

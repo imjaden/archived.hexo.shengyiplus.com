@@ -7,12 +7,12 @@ type: 在线文档
 
 该站点基于 [Hexo](https://hexo.io) 构建而成。网站内容在 `src` 文件夹内，格式为 Markdown。欢迎 issue 或 pull request。
 
-在线地址：[doc.idata.mobi](http://doc.idata.mobi)
+在线地址：[doc.idata.mobi](https://docs.idata.mobi)
 
 ## 贡献内容
 
-- 步骤1: 注册 [团队gitlab](http://gitlab.ibi.ren)
-- 步骤2: 向团队申请[项目 syp-documents](http://gitlab.ibi.ren/shengyiplus/syp-documents) 开发权限
+- 步骤1: 注册 [团队gitlab](https://gitlab.idata.mobi)
+- 步骤2: 向团队申请[项目 syp-documents](https://gitlab.idata.mobi/shengyiplus/syp-documents) 开发权限
 - 步骤3: 本地生成 sshkey
 - 步骤4: 在 gitlab 账号 ssh 设置项中添加本地 sshkey
 - 步骤5: 拉取 syp-documents 项目源码
@@ -20,10 +20,10 @@ type: 在线文档
 - 步骤7: 使用 [gap 规范](/developer/style-guide/gitlab.html) 提交
 - 步骤8: 申请合并
 - 步骤9: 管理员审核通过、并发布内容
-- 步骤10: 在线文档[doc.idata.mobi](http://doc.idata.mobi) 中查看自己的贡献内容
+- 步骤10: 在线文档[doc.idata.mobi](https://docs.idata.mobi) 中查看自己的贡献内容
 
 ``` bash
-$ git clone git@gitlab.ibi.ren:shengyiplus/syp-documents.git
+$ git clone git@gitlab.idata.mobi:shengyiplus/syp-documents.git
 
 $ cd syp-documents
 $ npm install

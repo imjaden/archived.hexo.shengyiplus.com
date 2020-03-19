@@ -10,7 +10,10 @@ type: SypCtl 工具
 ## 一键部署
 
 ```
-$ curl -sS http://gitlab.ibi.ren/syp-apps/sypctl/raw/dev-0.0.1/env.sh | bash
+# Linux
+$ curl -sS http://gitlab.idata.mobi/syp-apps/sypctl/raw/dev-0.1-master/env.sh | bash
+# Darwin
+$ curl -sS http://gitlab.idata.mobi/syp-apps/sypctl/raw/dev-0.1-master/darwin-env.sh | bash
 ```
 
 ## 使用手册
@@ -46,7 +49,7 @@ sypctl toolkit -> sypt
  "mmm#"   #    #       "mmm"   #    #mmmmm
 
 Current version is 0.2.19
-For full documentation, see: http://gitlab.ibi.ren/syp-apps/sypctl.git
+For full documentation, see: http://gitlab.idata.mobi/syp-apps/sypctl.git
 ```
 
 ## 备份方案
