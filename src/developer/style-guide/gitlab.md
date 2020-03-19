@@ -68,7 +68,7 @@ type: Gitlab提交规范
 ## Gitlab 请求合并
 
 1. 本地代码使用 `gap` 命令提交
-2. 打开并登录 [gitlab.ibi.ren](http://gitlab.ibi.ren)
+2. 打开并登录 [gitlab.idata.mobi](https://gitlab.idata.mobi)
 3. 点击页面 [Merge Request]，点击按钮 [New Merge Request]
 4. 选择自己的分支及要提交的目标分支
     - 要提交的源码分支(Source Branch)，一般分支名称是自己名称

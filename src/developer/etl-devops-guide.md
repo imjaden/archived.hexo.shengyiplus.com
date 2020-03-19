@@ -13,7 +13,7 @@ type: ETL 运维
 
 - 确认功能需求
 - **本地**开发测试
-- 维护运维 SQL 脚本至[SypModelScript](http://gitlab.ibi.ren/shengyiplus/syp-model-scripts)
+- 维护运维 SQL 脚本至[SypModelScript](https://gitlab.idata.mobi/shengyiplus/syp-model-scripts)
 - 提交代码合并审核(*参考[Gitlab 协作](/corporate-culture/teamwork.html#Gitlab-协作)*)
 - 向管理员申请部署至**开发/正式**环境
 
@@ -132,7 +132,7 @@ $ sypetl intfocus example
 
 ### 备份/其他规范
 
-- ODS/RDS 层所有的数据表设计、存储过程、触发器、视图、事件都需要维护在 [SypModelScripts](http://gitlab.ibi.ren/shengyiplus/syp-model-scripts)
+- ODS/RDS 层所有的数据表设计、存储过程、触发器、视图、事件都需要维护在 [SypModelScripts](https://gitlab.idata.mobi/shengyiplus/syp-model-scripts)
 - ODS 层的 ODS 业务表数据需要每日备份，并做人工检查。
 - 存储过程按功能需求设计，禁止不同功能的需求使用同一个存储过程。
 - 定时事件(event) 按功能需求设计，禁止不同功能的需求使用同一个定时事件。

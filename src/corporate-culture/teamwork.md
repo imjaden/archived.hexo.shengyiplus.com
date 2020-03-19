@@ -281,7 +281,7 @@ Mail: albert_li@intfocus.com | www.intfocus.com
 - 开发人员每次提交时修改 `提交版本` +1
 - 项目助理每次发布时修改 `发布版本` +1
 
-### `gap` 命令
+### `gap`(git-auto-push) 命令
 
 
 1. 所有项目源码根目录下都有版本配置档 `version.json`
@@ -309,7 +309,7 @@ Mail: albert_li@intfocus.com | www.intfocus.com
 
 ### 请求合并
 
-- 进入团队Gitlab[项目页面](http://gitlab.ibi.ren/)
+- 进入团队Gitlab[项目页面](https://gitlab.idata.mobi/)
 - 创建请求合并(New merge request)
 - 源分支(Source Branch) 选择自己的开发分支
 - 目标分支(Target Branch) 选择项目的主分支(dev-0.\*-master)
