@@ -19,6 +19,12 @@ case "$1" in
     ;;
     build:deploy|bd)
         npm run build
+
+        find . -name '.DS_Store' | xargs -I fn rm fn
+        for filepath in $(grep -lrn 'buysellads' syp-documents); do
+            python3 replace.py "${filepath}"
+        done
+
         npm run deploy
     ;;
     *)
