@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "description": "The Progressive JavaScript Framework",
+  "display": "standalone",
+  "icons": [],
+  "lang": "en-US",
+  "name": "Vue.js",
+  "short_name": "Vue",
+  "start_url": "./menu",
+  "theme_color": "#4fc08d"
+}

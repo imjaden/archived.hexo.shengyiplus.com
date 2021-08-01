@@ -1,0 +1,102 @@
+{"versions": [
+    {
+        "changelog": "修正changelog日志",
+        "version": "0.1.1/12"
+    },
+    {
+        "changelog": "修正 changelog 读取逻辑",
+        "version": "0.1.1/13"
+    },
+    {
+        "changelog": "添加 Jenkins 部署说明文档",
+        "version": "0.1.1/14"
+    },
+    {
+        "changelog": "1.补充印象笔记使用规范 2.完善 MySQL 编程规范 3. 补充 SypCtl 三缘备份方案",
+        "version": "0.1.1/16"
+    },
+    {
+        "changelog": "补充功能说明文档规范",
+        "version": "0.1.1/17"
+    },
+    {
+        "changelog": "完善培训交付说明文档",
+        "version": "0.1.1/18"
+    },
+    {
+        "changelog": "RDC功能流程图",
+        "version": "0.1.1/19"
+    },
+    {
+        "changelog": "RDC xmind 思维导图",
+        "version": "0.1.1/20"
+    },
+    {
+        "changelog": "补充菜单规范说明文档",
+        "version": "0.1.1/21"
+    },
+    {
+        "changelog": "补充数据库运维规范说明文档",
+        "version": "0.1.1/22"
+    },
+    {
+        "changelog": "补充函数命名规范",
+        "version": "0.1.1/23"
+    },
+    {
+        "changelog": "补充ETL流规范",
+        "version": "0.1.1/24"
+    },
+    {
+        "changelog": "补充职场协作的说明",
+        "version": "0.1.1/25"
+    },
+    {
+        "changelog": "补充RDC请求流程",
+        "version": "0.1.1/26"
+    },
+    {
+        "changelog": "RESTFul 接口规范",
+        "version": "0.1.1/27"
+    },
+    {
+        "changelog": "完善报表开发流程",
+        "version": "0.1.1/28"
+    },
+    {
+        "changelog": "补充业务菜单结构思维导图",
+        "version": "0.1.1/29"
+    },
+    {
+        "changelog": "完善jenkins部署流程说明文档",
+        "version": "0.1.1/30"
+    },
+    {
+        "changelog": "完善 Jenkins 部署说明",
+        "version": "0.1.1/31"
+    },
+    {
+        "changelog": "完善 Jenkins 部署说明",
+        "version": "0.1.1/32"
+    },
+    {
+        "changelog": "补充团队效率驱动说明图",
+        "version": "0.1.1/33"
+    },
+    {
+        "changelog": "补充禁止使用 mysql#replace into 说明",
+        "version": "0.1.1/34"
+    },
+    {
+        "changelog": "完善团队协作环节中的 gitlab 请求合并规范",
+        "version": "0.1.1/35"
+    },
+    {
+        "changelog": "完善源码体系中项目列表的说明",
+        "version": "0.1.1/36"
+    },
+    {
+        "changelog": "补充本周周刊",
+        "version": "0.1.1/37"
+    }
+]}
