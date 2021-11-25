@@ -3,7 +3,7 @@ title: ETL 运维
 type: ETL 运维
 ---
 
-## 思维导图 helloworld
+## 思维导图
 
 ![数据库运维规范.png](/images/数据库运维规范.png)
 
@@ -127,7 +127,7 @@ $ sypetl intfocus example
 19/10/31 16:01:14 - 配置正常 - `set -e`
 19/10/31 16:01:14 - 日志路径: /data/work/logs/intfocus-example-191031160114.log
 19/10/31 16:01:14 - 邮件配置: /data/work/logs/sendmail.191031160114.json
-19/10/31 16:01:17 - 胜因运维<jayden@jayden.top> => jaden<jay_li@intfocus.com>, SypEtl测试, status: 250
+19/10/31 16:01:17 - 胜因运维<jaden.li@jaden.tech> => Jaden.Li<jaden.li@jaden.tech>, SypEtl测试, status: 250
 ```
 
 ### 备份/其他规范
